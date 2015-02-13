@@ -3,6 +3,7 @@ package leaderboard
 type Repository interface {
     FindUserById(id int) (User, error)
     SaveUser(user User) (User, error)
+    FindAllUsers() ([]User, error)
 
     SaveAnswer(answer Answer) (Answer, error)
     FindAnswersByUserId(userId int) ([]Answer, error)

@@ -7,9 +7,9 @@ var userService *UserService
 func userServiceTest() {
     repo := GetRepositoryMock()
 
-    repo.SaveUser(
-        User{Id: 1, ProfileUrl: "http://user/1"},
-        )
+    repo.SaveUser(User{Id: 1, ProfileUrl: "http://user/1"})
+    repo.SaveUser(User{Id: 2, ProfileUrl: "http://user/2"})
+    repo.SaveUser(User{Id: 3, ProfileUrl: "http://user/3"})
 
     conn := GetBrainlyConnectorMock()
 
@@ -41,7 +41,7 @@ func TestCreateNewUserSuccess(t *testing.T) {
         t.Errorf("Unexpected error: %s", err)
     }
 
-    if user.Id != 2 {
+    if user.Id != 4 {
         t.Errorf("Unexpected id: %d", user.Id)
     }
 
@@ -55,5 +55,19 @@ func TestCreateNewUserSuccess(t *testing.T) {
 
     if user.Nick != "Foobar" {
         t.Errorf("Unexpected nick: %s", user.Nick)
+    }
+}
+
+func TestGetAllUsersIds(t *testing.T) {
+    userServiceTest()
+
+    usersIds, err := userService.GetAllUsersIds()
+
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
+
+    if len(usersIds) != 3 {
+        t.Errorf("Expecting 3 users ids, got: %d", len(usersIds))
     }
 }

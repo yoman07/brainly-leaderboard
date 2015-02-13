@@ -21,6 +21,14 @@ func (r *RepositoryMock) FindUserById(id int) (User, error) {
     return user, nil
 }
 
+func (r *RepositoryMock) FindAllUsers() ([]User, error) {
+    users := make([]User, 0)
+    for _, user := range r.users {
+        users = append(users, user)
+    }
+    return users, nil
+}
+
 func (r *RepositoryMock) SaveUser(user User) (User, error) {
     id := len(r.users) + 1
     user.Id = id

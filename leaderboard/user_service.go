@@ -25,3 +25,14 @@ func (u *UserService) CreateUser(name string, profileUrl string) (User, error) {
 
     return u.repository.SaveUser(user)
 }
+
+func (u *UserService) GetAllUsersIds() ([]int, error) {
+    ids := make([]int, 0)
+    users, _ := u.repository.FindAllUsers()
+
+    for _, user := range users {
+        ids = append(ids, user.Id)
+    }
+
+    return ids, nil
+}
