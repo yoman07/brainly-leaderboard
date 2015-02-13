@@ -11,4 +11,7 @@ type Repository interface {
 
     SaveUserScore(score UserScore) (UserScore, error)
     FindUserScoreByUserId(userId int) (UserScore, error)
+
+    SaveRanking(ranking []int) error
+    FindRanking() ([]int, error)
 }

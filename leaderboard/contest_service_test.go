@@ -5,7 +5,12 @@ import "testing"
 var contestService *ContestService
 
 func contestServiceTest() {
+    conn := GetBrainlyConnectorMock()
     repo := GetRepositoryMock()
+
+    repo.SaveUser(User{Id: 1, ProfileUrl: "http://user/1"})
+    repo.SaveUser(User{Id: 2, ProfileUrl: "http://user/2"})
+    repo.SaveUser(User{Id: 3, ProfileUrl: "http://user/3"})
 
     repo.SaveAnswer(Answer{Created: daysAgoTimestamp(3), UserId: 1})
     repo.SaveAnswer(Answer{Created: daysAgoTimestamp(9), UserId: 1})
@@ -20,7 +25,9 @@ func contestServiceTest() {
     repo.SaveAnswer(Answer{Created: daysAgoTimestamp(70), UserId: 3})
     repo.SaveAnswer(Answer{Created: daysAgoTimestamp(80), UserId: 3})
 
-    contestService = CreateContestService(repo)
+    userService := CreateUserService(repo, conn)
+
+    contestService = CreateContestService(repo, userService)
 }
 
 func TestUpdateUserScore(t *testing.T) {
@@ -48,29 +55,29 @@ func TestUpdateUserScore(t *testing.T) {
     }
 }
 
-// func TestGetRanking(t *testing.T) {
-//     contestServiceTest()
-//     contestService.UpdateUserScore(1)
-//     contestService.UpdateUserScore(2)
-//     contestService.UpdateUserScore(3)
+func TestGetRanking(t *testing.T) {
+    contestServiceTest()
+    contestService.UpdateUserScore(1)
+    contestService.UpdateUserScore(2)
+    contestService.UpdateUserScore(3)
 
-//     contestService.RecalculateRanking()
+    contestService.RecalculateRanking()
 
-//     ranking, err := contestService.GetRanking()
+    ranking, err := contestService.GetRanking()
 
-//     if err != nil {
-//         t.Errorf("Unexpected error: %s", err)
-//     }
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
 
-//     if ranking[0].UserId != 2 {
-//         t.Errorf("First place should be for userId: 2, got %s", ranking[0].UserId)
-//     }
+    if ranking[0].UserId != 2 {
+        t.Errorf("First place should be for userId: 2, got %d", ranking[0].UserId)
+    }
 
-//     if ranking[1].UserId != 1 {
-//         t.Errorf("Second place should be for userId: 1, got %s", ranking[0].UserId)
-//     }
+    if ranking[1].UserId != 1 {
+        t.Errorf("Second place should be for userId: 1, got %d", ranking[1].UserId)
+    }
 
-//     if ranking[2].UserId != 3 {
-//         t.Errorf("Third place should be for userId: 3, got %s", ranking[0].UserId)
-//     }
-// }
+    if ranking[2].UserId != 3 {
+        t.Errorf("Third place should be for userId: 3, got %d", ranking[2].UserId)
+    }
+}

@@ -4,6 +4,7 @@ type RepositoryMock struct {
     users   map[int]User
     answers map[int]Answer
     scores map[int]UserScore
+    ranking []int
 }
 
 // Initializes RepositoryMock with example user data
@@ -12,6 +13,7 @@ func GetRepositoryMock() *RepositoryMock {
     repository.users = make(map[int]User)
     repository.answers = make(map[int]Answer)
     repository.scores = make(map[int]UserScore)
+    repository.ranking = make([]int, 0)
 
     return repository
 }
@@ -73,4 +75,13 @@ func (r *RepositoryMock) SaveUserScore(score UserScore) (UserScore, error) {
 func (r *RepositoryMock) FindUserScoreByUserId(userId int) (UserScore, error) {
     score := r.scores[userId]
     return score, nil
+}
+
+func (r *RepositoryMock) SaveRanking(ranking []int) error {
+    r.ranking = ranking
+    return nil
+}
+
+func (r *RepositoryMock) FindRanking() ([]int, error) {
+    return r.ranking, nil
 }
