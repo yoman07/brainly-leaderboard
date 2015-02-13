@@ -3,6 +3,7 @@ package leaderboard
 type RepositoryMock struct {
     users   map[int]User
     answers map[int]Answer
+    scores map[int]UserScore
 }
 
 // Initializes RepositoryMock with example user data
@@ -10,6 +11,7 @@ func GetRepositoryMock() *RepositoryMock {
     repository := new(RepositoryMock)
     repository.users = make(map[int]User)
     repository.answers = make(map[int]Answer)
+    repository.scores = make(map[int]UserScore)
 
     return repository
 }
@@ -44,7 +46,7 @@ func (r *RepositoryMock) FindAnswersByUserId(userId int) ([]Answer, error) {
     return userAnswers, nil
 }
 
-func (r *RepositoryMock) FindAnswersByUserIdSince(userId int, since int) ([]Answer, error) {
+func (r *RepositoryMock) FindAnswersByUserIdSince(userId int, since int64) ([]Answer, error) {
     userAnswers := make([]Answer, 0)
     for _, answer := range r.answers {
         if answer.UserId == userId && answer.Created >= since {
@@ -52,4 +54,15 @@ func (r *RepositoryMock) FindAnswersByUserIdSince(userId int, since int) ([]Answ
         }
     }
     return userAnswers, nil
+}
+
+func (r *RepositoryMock) SaveUserScore(score UserScore) (UserScore, error) {
+    userId := score.UserId
+    r.scores[userId] = score
+    return score, nil
+}
+
+func (r *RepositoryMock) FindUserScoreByUserId(userId int) (UserScore, error) {
+    score := r.scores[userId]
+    return score, nil
 }

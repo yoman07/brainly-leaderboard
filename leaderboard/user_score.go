@@ -1,6 +1,6 @@
 package leaderboard
 
-type RankingPlace struct {
+type UserScore struct {
     UserId        int
     Answers7Days  int
     Answers30Days int

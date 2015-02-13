@@ -29,7 +29,7 @@ func (a *AnswerService) GetUserAnswers(userId int) ([]Answer, error) {
     return answers, nil
 }
 
-func (a *AnswerService) GetUserAnswersSince(userId int, since int) ([]Answer, error) {
+func (a *AnswerService) GetUserAnswersSince(userId int, since int64) ([]Answer, error) {
     answers, _ := a.repository.FindAnswersByUserIdSince(userId, since)
     return answers, nil
 }

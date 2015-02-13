@@ -6,5 +6,8 @@ type Repository interface {
 
     SaveAnswer(answer Answer) (Answer, error)
     FindAnswersByUserId(userId int) ([]Answer, error)
-    FindAnswersByUserIdSince(userId int, since int) ([]Answer, error)
+    FindAnswersByUserIdSince(userId int, since int64) ([]Answer, error)
+
+    SaveUserScore(score UserScore) (UserScore, error)
+    FindUserScoreByUserId(userId int) (UserScore, error)
 }
