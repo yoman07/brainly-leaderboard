@@ -18,16 +18,16 @@ func answerServiceTest() {
 
     conn.AddAnswer(
         "http://user/1",
-        Answer{Created: 100, UserId: 1},
+        Answer{Created: 100, UserId: 1, ExternalId: 500},
         )
 
     conn.AddAnswer(
         "http://user/2",
-        Answer{Created: 50, UserId: 2},
+        Answer{Created: 50, UserId: 2, ExternalId: 505},
         )
     conn.AddAnswer(
         "http://user/2",
-        Answer{Created: 200, UserId: 2},
+        Answer{Created: 200, UserId: 2, ExternalId: 510},
         )
 
     answerService = CreateAnswerService(repo, conn)
@@ -45,7 +45,28 @@ func TestUpdateAndGetUserAnswers(t *testing.T) {
 
     answers, _ := answerService.GetUserAnswers(userId)
 
-    if len(answers) == 0 {
+    if len(answers) != 1 {
+        t.Errorf("After updating user answers has %d answers", len(answers))
+    }
+}
+
+func TestUpdateUserAnswersWillNotCountSameAnswerTwice(t *testing.T) {
+    answerServiceTest()
+    userId := 2
+
+    err := answerService.UpdateUserAnswers(userId)
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
+
+    err = answerService.UpdateUserAnswers(userId)
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
+
+    answers, _ := answerService.GetUserAnswers(userId)
+
+    if len(answers) != 2 {
         t.Errorf("After updating user answers has %d answers", len(answers))
     }
 }

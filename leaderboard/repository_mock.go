@@ -1,5 +1,7 @@
 package leaderboard
 
+import "errors"
+
 type RepositoryMock struct {
     users   map[int]User
     answers map[int]Answer
@@ -44,6 +46,16 @@ func (r *RepositoryMock) SaveAnswer(answer Answer) (Answer, error) {
     r.answers[id] = answer
 
     return answer, nil
+}
+
+func (r *RepositoryMock) FindUserAnswerByExternalId(userId int, externalId int) (Answer, error) {
+    for _, answer := range r.answers {
+        if answer.UserId == userId && answer.ExternalId == externalId {
+            return answer, nil
+        }
+    }
+
+    return Answer{}, errors.New("User answer with given id not found")
 }
 
 func (r *RepositoryMock) FindAnswersByUserId(userId int) ([]Answer, error) {

@@ -6,6 +6,7 @@ type Repository interface {
     FindAllUsers() ([]User, error)
 
     SaveAnswer(answer Answer) (Answer, error)
+    FindUserAnswerByExternalId(userId int, externalId int) (Answer, error)
     FindAnswersByUserId(userId int) ([]Answer, error)
     FindAnswersByUserIdSince(userId int, since int64) ([]Answer, error)
 
@@ -15,3 +16,4 @@ type Repository interface {
     SaveRanking(ranking []int) error
     FindRanking() ([]int, error)
 }
+
