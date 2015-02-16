@@ -5,10 +5,11 @@ import "testing"
 var profileParser *ProfileParser
 
 func profileParserTest() {
-    profileParser = CreateProfileParser()
+    profileParser = CreateProfileParser(CreateFilesystemRemoteConnector())
 }
 
 func TestGetUserDetails(t *testing.T) {
+    profileParserTest()
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
     results, err := profileParser.getProfileDetails(profileUrl)
@@ -23,6 +24,7 @@ func TestGetUserDetails(t *testing.T) {
 }
 
 func TestGetTasksIdsFromPage(t *testing.T) {
+    profileParserTest()
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
     results, err := profileParser.getTasksIdsFromPage(profileUrl)
@@ -40,6 +42,7 @@ func TestGetTasksIdsFromPage(t *testing.T) {
 }
 
 func TestGetSiteFromProfileUrl(t *testing.T) {
+    profileParserTest()
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
     result, err := profileParser.getSiteFromProfileUrl(profileUrl)
@@ -54,6 +57,7 @@ func TestGetSiteFromProfileUrl(t *testing.T) {
 }
 
 func TestGetTasksSolvedPagesUrls(t *testing.T) {
+    profileParserTest()
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
     results, err := profileParser.getUrlsWithSolvedTasks(profileUrl)
@@ -76,6 +80,7 @@ func TestGetTasksSolvedPagesUrls(t *testing.T) {
 }
 
 func TestGetUserAnswerDetailsForTask(t *testing.T) {
+    profileParserTest()
     userId := 6680665
     taskId := 8791911
 

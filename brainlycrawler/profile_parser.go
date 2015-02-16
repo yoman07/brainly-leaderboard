@@ -1,29 +1,29 @@
 package brainlycrawler
 
 import (
-    "io/ioutil"
-    "os"
-    "bytes"
     "golang.org/x/net/html"
     "strings"
     "errors"
     "strconv"
     "net/url"
     "encoding/json"
+    "bytes"
 )
 
 type ProfileParser struct {
-
+    connector RemoteConnector
 }
 
-func CreateProfileParser() *ProfileParser {
-    return new(ProfileParser)
+func CreateProfileParser(c RemoteConnector) *ProfileParser {
+    parser := new(ProfileParser)
+    parser.connector = c
+    return parser
 }
 
 func (p *ProfileParser) getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
     result := make(map[string]string)
 
-    raw, _ := getTaskMainViewJson(taskId)
+    raw, _ := p.connector.GetTaskMainViewJson(taskId)
 
     decoded := make(map[string]interface{})
 
@@ -56,7 +56,7 @@ func getUserReponseDetails(userId int, responses []interface{}) (map[string]inte
 func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error) {
     result := make(map[string]string)
 
-    body, _ := getProfileHtml(url)
+    body, _ := p.connector.GetProfileHtml(url)
     doc, _ := html.Parse(strings.NewReader(body))
 
     rankingSpan, _ := getElement(doc, "span", "class", "ranking")
@@ -71,7 +71,7 @@ func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error)
 func (p *ProfileParser) getTasksIdsFromPage(url string) ([]int, error) {
     ids := make([]int, 0)
 
-    body, _ := getProfileHtml(url)
+    body, _ := p.connector.GetProfileHtml(url)
     doc, _ := html.Parse(strings.NewReader(body))
 
     tasksSolved, _ := getElement(doc, "div", "id", "tasks-solved")
@@ -99,7 +99,7 @@ func (p *ProfileParser) getUrlsWithSolvedTasks(profileUrl string) ([]string, err
     urls := make([]string, 0)
     urls = append(urls, profileUrl)
 
-    body, _ := getProfileHtml(profileUrl)
+    body, _ := p.connector.GetProfileHtml(profileUrl)
     doc, _ := html.Parse(strings.NewReader(body))
 
     tasksSolved, _ := getElement(doc, "div", "id", "tasks-solved")
@@ -138,30 +138,6 @@ func (p *ProfileParser) getSiteFromProfileUrl(profileUrl string) (string, error)
     site.WriteString(u.Host)
 
     return site.String(), nil
-}
-
-func getProfileHtml(url string) (string, error) {
-    var profilePath bytes.Buffer
-    pwd, _ := os.Getwd()
-
-    profilePath.WriteString(pwd)
-    profilePath.WriteString("/assets/montmorillonit.html")
-
-    html, _ := ioutil.ReadFile(profilePath.String())
-
-    return string(html), nil
-}
-
-func getTaskMainViewJson(taskId int) (string, error) {
-    var endpointPath bytes.Buffer
-    pwd, _ := os.Getwd()
-
-    endpointPath.WriteString(pwd)
-    endpointPath.WriteString("/assets/tasks.main_view.json")
-
-    json, _ := ioutil.ReadFile(endpointPath.String())
-
-    return string(json), nil
 }
 
 func getElement(n *html.Node, tag, attr, value string) (*html.Node, error) {
