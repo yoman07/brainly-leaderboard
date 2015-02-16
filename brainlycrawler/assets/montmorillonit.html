@@ -1,0 +1,1128 @@
+<!DOCTYPE HTML><html id="html" class="pl">
+<head>
+<link rel="apple-touch-icon" href="/img/logo-100.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/logo-100.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/logo-100.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/logo-100.png">
+<link rel="apple-touch-icon-precomposed" href="/img/logo-100.png">
+<title>Zadane.pl - Profil użytkownika :montmorillonit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> <script type="text/javascript">
+		window.onerror = function(m,f,l) {
+	    var e = window.encodeURIComponent;
+	    new Image().src = "/img/jserror.gif?msg=" + e(m) + "&filename=" + e(f) + "&line=" + e(l) + "&url=" + e(window.location.href);
+	};
+		if(typeof console == 'undefined') {
+	console = {};
+	console.log = function() {
+		return true;
+	};
+	console.time = function() {
+		return true;
+	};
+	console.timeEnd = function() {
+		return true;
+	};
+	console.error = function() {
+		return true;
+	}
+	console.info = function() {
+		return true;
+	}
+	console.warn = function(){
+		return true;
+	}
+	console.debug = function(){
+		return true;
+	}
+	console.assert = function(){
+		return true;
+	}
+	console.clear = function(){
+		return true;
+	}
+	console.dir = function(){
+		return true;
+	}
+	console.dirxml = function(){
+		return true;
+	}
+	console.trace = function(){
+		return true;
+	}
+	console.group = function(){
+		return true;
+	}
+	console.groupCollapsed = function(){
+		return true;
+	}
+	console.groupEnd = function(){
+		return true;
+	}
+	console.profile = function(){
+		return true;
+	}
+	console.profileEnd = function(){
+		return true;
+	}
+	console.count = function(){
+		return true;
+	}
+	console.exception = function(){
+		return true;
+	}
+	console.table = function(){
+		return true;
+	}
+}	siteLocale = 'pl';
+	siteController = 'users';
+	siteAction  = 'view';
+
+				profileData = {
+				id : 6680665,
+				nick : 'montmorillonit'
+			}
+			profileData.id = ~~(profileData.id);
+				
+
+
+		
+	closedTask = '1';
+	
+	sitePassedParams = '[]';
+	seleniumTestUsers = []; //defined in zadanium dictionary
+	
+	tinyMceVersion = 2;
+	timeStamp = '1424032455';
+	
+	languageFormNrCounter = function(n) {
+		return n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;
+	}
+
+		
+	socketIo = {
+		allowed :	!!(true),
+
+		
+		url		:	'b.hive.api.z-dn.net',
+		ssl_url	:   'ssl.socketio.dev',
+		host	:	'b.hive.api.z-dn.net',
+		port	:	'1252',
+		ssl_port:	'7870'
+	}
+	
+	subj2subscribe = '["0"]';	
+	
+					
+		
+		myData = {"loggedIn":true,"id":"6680665","nick":"montmorillonit","hash":"a8e126480b3148aad9fd448134f7e87057b38cb6","authHash":"8d2db8e6779baae033acb2c8d5376611","rankName":"Rozwi\u0105zuj\u0105cy","rankURL":"\/ranks\/index","ranks":{"names":"Rozwi\u0105zuj\u0105cy","color":"f26522"},"points":"203","avatarURL":"http:\/\/pl.static.z-dn.net\/files\/d47\/136481b852f6d7b91d1122b6ce0deb2d.jpg","avatar":{"src":"http:\/\/pl.static.z-dn.net\/files\/d47\/136481b852f6d7b91d1122b6ce0deb2d.jpg","onerror":"imgError(this, 'http:\/\/zadane.pl\/img\/avatars\/50-ONA.png');","style":"max-width: 50px; max-height:50px;"},"profileURL":"\/profil\/montmorillonit-6680665","gender":"1","newMessages":1,"lastMessageRid":999999999,"unreadData":[],"intimacy":[5034172]};
+		myData.id = ~~(myData.id);
+	</script>
+<script type="text/javascript">
+			api_headers = {"X-B-Token-Long":"Z17V5Tju3BSpMGY0AyWglOgf1fqYCJLOWOLM56HBtpwBpPL8PpbsDxHlqYLksthjjyrinM7duLpVvSkeJsLp40uFDkA5jD5LD9BAaPIbpXJPrXPDa3CCWCPVTX2MPW5e","X-B-Token-Short":"ZKRN2hTfpoa7D0jv8V4lIHL9DSWiQsfxTF2e31T9hFTlzmqifDurR8em1JCHkFFQ","X-B-Installation-Uuid":"1a7ad5060602e7a497a8510a78ae5efa27dc0932"}	 
+
+	api_version = 26</script>
+<script type="text/javascript">
+(function() {
+	/**
+	*	Constants namespace contains all constants we are using in code (mostly they are from backend configuration)
+	*	IMPORTANT: if backend constant is undefined then javascript parse it as value and returns undefined and type error!
+	*/
+	var constants = {
+		'PRESENCE_REAL' : 1,
+		'PRESENCE_OBSERVER' : 2,
+		'PRESENCE_WRITING' : 3,
+		'PRESENCE_STOPPED_WRITING' : 4,
+		'TPL_TIMESTAMP' : ((typeof timeStamp !== 'undefined') ? timeStamp : 1424032455),
+		'LIVE_NOTIFICATION_NEW_MSG' : 'newMsg',
+		'LIVE_NOTIFICATION_READ_MSG' : 'readMsg',
+		'TASKS_SOLVED' : ~~('2'),
+		'TASKS_ALL' : ~~('3'),
+		'TASKS_UNRESOLVED' : ~~('1'),
+		'TASKS_NO_RESPS' : ~~('0'),
+		'T_BEFORE' : 1,
+		'T_AFTER' : 2,		
+		'PANEL_NOTIFICATION_MESSAGES' : '1',
+		'PANEL_NOTIFICATION_TASKS' : '2',
+		'PANEL_NOTIFICATION_COMMUNITY' : '3',
+		'PANEL_SCROLLBAR_HEIGHT' : 400,			// static panel height
+		'CHATS_BOX_BIND' : '1',
+		'CHATS_BOX_UNBIND' : '2',
+		'CHATS_BOX_ACTIVE' : '3',
+		'CHATS_BOX_DEACTIVE' : '4',
+		'MAX_CHAT_BOXES' : 6,
+		'MY_MAIN_DOMAIN' : 'Zadane.pl',
+		'SINGLE_COLUMN_COMMUNITY' : 0,
+		'DEFAULT_AVATAR_SIZE' : 32,
+		'EMPTY_AVATAR_64_1' : 'http://zadane.pl/img/avatars/50-ONA.png',
+		'EMPTY_AVATAR_64_2' : 'http://zadane.pl/img/avatars/50-ON.png',
+				'SOCKETIO_DEFAULT_PROTOCOL' : '2.1',
+		'SOCKETIO_WEBSOCKET_ENABLED' : 1,
+		'SOCKETIO_DEBUGGER_ENABLED' : 0,
+		'AVATAR_MAX_WEIGHT' : '5120',
+		'LANGUAGE_FORM_FUNCTION' : languageFormNrCounter,
+		'REGISTRATION_ENHANCEMENT_VERSION' : '0',
+		'REGISTRATION_ENHANCEMENT_FIRST_VERSION' : '1',
+		'FOOTER_ANALYTICS_ID' : 'UA-7939660-1,UA-37161679-2,UA-37165679-2,UA-57165258-1',
+		'ENABLE_COUPON_SYSTEM' : ~~('0'),
+		'FORM_TOKEN_EXPIRE' : ~~('10'),
+		'NEW_REGISTRATION_TWO_TYPES_ENABLED' : ~~('1'),
+		'BOUNDARY_AGE_OF_EDUCATION_LEVEL' : '13,16,99',
+		'NEW_LOGIN_BUDDIES_SUGGESTIONS_ENABLED' :  ~~('0'),
+		'MODEL_TYPE_ID' : {
+			'task' : 1,
+			'response' : 2
+		},
+		'API_HEADER_NAME' : {
+			'nick' : 'X-B-Nick',
+			'uuid' : 'X-B-Installation-Uuid',
+			'token' : 'X-B-Auth-Token'
+		},
+		'MODERATION_TICKET_TIMES' : '["300","600","900"]',
+		'KISSMETRICS_CLICK_TRACKING_ENABLED' : ~~('0'),
+		'MY_CONTENT_CONFIRMATION_ENABLED' : ~~('1') && ~~(''),
+		'CAN_CONFIRMATION_CONTENT_MODERATE' : ~~(''),
+	}
+	
+	/**
+	*	Constants function, return given constant from namespace above (keys as string!)
+	*/
+	_c = function(key) {
+		if(key in constants) {
+			return constants[key];
+		} else {
+			console.error('Undefined constant ' + key);
+			return null;
+		} 
+	}
+	
+	/**
+	*	Basic debugger namespace (prevents calling to undefined when debugger is disabled)
+	*/
+	zDebugger = {
+		_tm : 0,
+		log : function() {
+			if(_c('SOCKETIO_DEBUGGER_ENABLED')) {
+				if(zDebugger._tm < 5) {
+					setTimeout(function() {
+						zDebugger.log(arguments[0], arguments[1]);
+					}, 150);
+					zDebugger._tm++;
+				}
+			}
+		}
+	};
+})();
+</script>
+<link type='text/css' rel='stylesheet' href='/min/b=css&amp;f=screening.css,zadane_dynamic.css,jquery.fancybox.css,uczelnie.css,jquery.qtip.min.css,bootstrap.css,bootstrap_zad.css,profile.css,jquery.notifyBar.css,dfp.css&amp;1424032455'/><script type="text/javascript">
+	ZConfig = {"debug":false,"cssAsset":["screening","zadane_dynamic","jquery.fancybox","uczelnie","jquery.qtip.min","bootstrap","bootstrap_zad","profile","jquery.notifyBar","dfp"],"jsAsset":["jquery","jquery.cookie","html5shiv.js","basics","lazyload","mustache","escaping","zadanium","global\/base","global\/sanitizable","api\/endpoints","global\/user_element_skeleton","global\/user_skeleton","global\/users","jquery.scrollTo-min","global\/scrollbar_skeleton","global\/scrollbar","flXHR\/flXHR","jquery.flXHRproxy","socket.io.min","comet\/dispatcher","comet\/socket.io","jquery.fancybox.min","jquery.md5","jquery.confirm-1.3","jquery.form","jquery.animate-shadow-min","jquery.color","base64","panel","sprintf","global\/flash_msg_skeleton","global\/flash_msg","tasks\/add_box","jquery.qtip.min","buddies\/search","panel\/notification_skeleton","panel\/notification","modules\/completer_skeleton","chat\/new_message","chat\/thread_skeleton","chat\/thread_pms","chat\/bind_skeleton","chat\/bind","jquery-ui-1.8.11.custom.min","autoresize.jquery.min","buddies\/online_skeleton","panel\/fb_invitations_skeleton","panel\/community","placeholder_ie","guidepost","textarea-insert","modules\/time_skeleton","modules\/time","modules\/toplayer_button_skeleton","modules\/toplayer_skeleton","modules\/toplayer","tasks\/box_skeleton","tasks\/activities_skeleton","tasks\/show_more_skeleton","tasks\/show_more","global\/title","jquery.ui.core.min","jquery.ui.widget.min","jquery.ui.mouse.min","jquery.ui.sortable.min","jQuery.ui.tabs","jquery.rotator","profile","jquery.tools.min.only.validation","jquery.notifyBar"],"minifyDir":"min","minifyAllowed":true,"jsTimeStampPrefix":"?","jsDir":"\/js\/","timeStamp":1424032455,"language":"pl","endpointsUrl":"http:\/\/zadane.pl\/endpoints\/legacy"};
+	
+	if(typeof Object.freeze === 'function') {
+		Object.freeze(ZConfig);
+	}
+</script>
+<script type='text/javascript' src='/min/b=js&amp;f=jquery.js,jquery.cookie.js,html5shiv.js,basics.js,lazyload.js,mustache.js,escaping.js,zadanium.js,global/base.js,global/sanitizable.js,api/endpoints.js,global/user_element_skeleton.js,global/user_skeleton.js,global/users.js,jquery.scrollTo-min.js,global/scrollbar_skeleton.js,global/scrollbar.js,flXHR/flXHR.js,jquery.flXHRproxy.js,socket.io.min.js,comet/dispatcher.js,comet/socket.io.js,jquery.fancybox.min.js,jquery.md5.js,jquery.confirm-1.3.js,jquery.form.js,jquery.animate-shadow-min.js&amp;1424032455'></script><script type='text/javascript' src='/min/b=js&amp;f=jquery.color.js,base64.js,panel.js,sprintf.js,global/flash_msg_skeleton.js,global/flash_msg.js,tasks/add_box.js,jquery.qtip.min.js,buddies/search.js,panel/notification_skeleton.js,panel/notification.js,modules/completer_skeleton.js,chat/new_message.js,chat/thread_skeleton.js,chat/thread_pms.js,chat/bind_skeleton.js,chat/bind.js,jquery-ui-1.8.11.custom.min.js,autoresize.jquery.min.js,buddies/online_skeleton.js,panel/fb_invitations_skeleton.js,panel/community.js,placeholder_ie.js,guidepost.js&amp;1424032455'></script><script type='text/javascript' src='/min/b=js&amp;f=textarea-insert.js,modules/time_skeleton.js,modules/time.js,modules/toplayer_button_skeleton.js,modules/toplayer_skeleton.js,modules/toplayer.js,tasks/box_skeleton.js,tasks/activities_skeleton.js,tasks/show_more_skeleton.js,tasks/show_more.js,global/title.js&amp;1424032455'></script><script type="text/javascript">
+			$(document).ready(function() {
+			$("body").on("click", "a[href$='undefined']", function(event) {
+			    window.onerror('Bad link:' + $(this).html());
+			});
+		});
+	
+	//$.each([""], function() {
+	//	if(~~(this) > 0) { seleniumTestUsers.push(~~(this))};
+	//});
+</script>
+<link type='text/css' rel='stylesheet' href='/newcss/zadane.cssp;grid.cssp;panel.cssp;scrollbar.cssp;bookmarks.cssp;tasks.cssp;patrons.cssp;pretty_things.cssp;notification.cssp;toplayer.cssp;toplayer_contents.cssp;community.cssp;adv/fixed.cssp;i18n/subject_icons/subject_icons.cssp;i18n/subject_icons/subject_icons_pl.cssp;chat/panel.cssp;chat/thread.cssp;chat/inbox.cssp;chat/bind.cssp&amp;1424032455'/><script type='text/javascript' src='/min/b=js&amp;f=jquery.ui.core.min.js,jquery.ui.widget.min.js,jquery.ui.mouse.min.js,jquery.ui.sortable.min.js,jquery.scrollTo-min.js,jQuery.ui.tabs.js,jquery.rotator.js,profile.js,jquery.tools.min.only.validation.js,base64.js,jquery.notifyBar.js&amp;1424032455'></script><link rel="icon" type="image/jpeg" href="/img/favicon.jpg"/>
+ 
+<link href="http://zadane.pl/img/favicon.jpg" rel="image_src"/>
+<meta property="og:title" content="montmorillonit">
+<meta property="og:description" content="Profil użytkownika">
+<meta property="og:url" content="http://zadane.pl/users/view">
+<meta property="og:app_id" content="488324521190232">
+<meta property="og:type" content="zadanepl:user">
+<meta property="og:nick" content="montmorillonit">
+<meta property="og:grade" content="Liceum/Technikum">
+<meta property="og:image" content="http://pl.static.z-dn.net/files/d47/136481b852f6d7b91d1122b6ce0deb2d.jpg">
+<meta name="viewport" id="ios_viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-itunes-app" content="app-id=592487984">
+<script type="text/javascript">
+	;(function() {
+		// changes meta tag to allow touch rescale
+		if(!navigator.userAgent.match(/iPhone/i)) {
+			var meta = document.getElementById("ios_viewport");
+			if(!!meta && typeof meta == 'function') {
+				meta.setAttribute('content', "width=device-width, initial-scale=0.4 , minimum-scale=0.25, maximum-scale=5.0, user-scalable=1");
+			}
+			
+		}
+	})();
+</script>
+<script type="text/javascript">
+  var _kmq = _kmq || [];
+  var _kmk = _kmk || 'ba9ed5f98a49e409f505524b1cec22c6c2c48970';
+  function _kms(u){
+    setTimeout(function(){
+      var d = document, f = d.getElementsByTagName('script')[0],
+      s = d.createElement('script');
+      s.type = 'text/javascript'; s.async = true; s.src = u;
+      f.parentNode.insertBefore(s, f);
+    }, 1);
+  }
+  _kms('//i.kissmetrics.com/i.js');
+  _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+</script> <script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+			</script>
+<script type='text/javascript'>
+				if(typeof GS_googleAddAdSenseService === 'function') {
+					GS_googleAddAdSenseService("ca-pub-6782929613561816");
+					GS_googleEnableAllServices();
+				}
+			</script>
+<script type='text/javascript'>if(typeof GA_googleAddSlot === 'function') {GA_googleAddSlot("ca-pub-6782929613561816", "top_top"); }
+if(typeof GA_googleAddSlot === 'function') {GA_googleAddSlot("ca-pub-6782929613561816", "top_zaslepka"); }
+if(typeof GA_googleAddSlot === 'function') {GA_googleAddSlot("ca-pub-6782929613561816", "top_zaslepka2"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("dis_floor", "0"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("plec", "1"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("ranga", "15"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("kontroler", "users"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("akcja", "view"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("domain", "zadane.pl"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("uri", "__users__view"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("user_id", "6680665"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("kontrakcja", "users__view"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("szkola", "3"); }
+if(typeof GA_googleAddAttr === 'function') {GA_googleAddAttr("ip", "89.72.222.108"); }
+
+			</script>
+<script type='text/javascript'>
+				if(typeof GA_googleFetchAds === 'function') {
+					GA_googleFetchAds();
+				}
+			</script>
+<link rel="apple-touch-icon-precomposed" href="/img/new/apple-touch-icon-precomposed.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/new/apple-touch-icon-72x72-precomposed.png"/>
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/new/apple-touch-icon-114x114-precomposed.png"/>
+<meta name="viewport" id="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body clickbox="body">
+<!--[if lt IE 8]>
+	<link href="/css/infobar.css?1234" rel="stylesheet">
+	<div id="infobar" style="z-index: 10000; position: fixed; top: 30px; background-color: red; text-align: center; cursor: pointer;">
+		<a href="http://browsehappy.pl/infobar">
+			Internet Explorer nie potrafi poprawnie wyświetlić tej strony. Kliknij tutaj, aby dowiedzieć się więcej...		</a>
+	</div>
+<![endif]-->
+<div clickbox="panel" id="main-panel">
+<a href="/">
+<div class="logo-icon"></div>
+</a>
+<div class="menu-left">
+<ul class="menu-list">
+<li class="menu-element styled"><a href="/">Start</a></li>
+<li class="menu-element styled"><a href="/question/add?entry=1690">Zapytaj</a></li>
+<li class="menu-element styled"><a href="javascript:void(0)" onclick="Zadanium.execute({&quot;relative&quot;:&quot;panel.onDomReady&quot;,&quot;method&quot; : &quot;panel.buttonClickAction&quot;, args : [event, this]});">Archiwum</a>
+<ul>
+<li>
+<a href="/archiwum/18-Matematyka" class="arch_box">
+<div class="arch">
+<h3 class="title">Matematyka</h3>
+<span class="solved">
+1058937 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/10-Polski" class="arch_box">
+<div class="arch">
+<h3 class="title">Polski</h3>
+<span class="solved">
+999137 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/15-Jezyk_angielski" class="arch_box">
+<div class="arch">
+<h3 class="title">Język angielski</h3>
+<span class="solved">
+327792 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/5-Historia" class="arch_box">
+<div class="arch">
+<h3 class="title">Historia</h3>
+<span class="solved">
+309272 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/3-Fizyka" class="arch_box">
+<div class="arch">
+<h3 class="title">Fizyka</h3>
+<span class="solved">
+191105 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/2-Chemia" class="arch_box">
+<div class="arch">
+<h3 class="title">Chemia</h3>
+<span class="solved">
+208890 rozwiązania </span>
+</div>
+</a>
+</li>
+<li>
+<a href="/archiwum/1-Biologia" class="arch_box">
+<div class="arch">
+<h3 class="title">Biologia</h3>
+<span class="solved">
+284919 rozwiązania </span>
+</div>
+</a>
+</li>
+<li><a href="/archiwum" class="footer">Wszystkie zadania</a></li>
+<li><a href="/wypracowania" class="footer">Wszystkie wypracowania</a></li>
+</ul>
+</li>
+<li class="menu-element styled schools"><a href="/uczelnie" data-track="click_university_link">Uczelnie</a></li>
+</ul>
+</div>
+<div class="menu-right">
+<ul class="menu-list">
+<li class="menu-element" id="panel-messages">
+<a href="javascript:void(0)" onclick="Zadanium.execute({&quot;relative&quot;:&quot;panel.onDomReady&quot;,&quot;method&quot; : &quot;panel.buttonClickAction&quot;, args : [event, this]});" data-track="click_messages_link">Wiadomości</a> <ul>
+<li class="header">
+<a href="/messages" class="btn btn-mini all-msg">Skrzynka odbiorcza</a> </li>
+<li class="messages-container empty">
+<ul class="threads">
+</ul>
+</li>
+<li class="footer"></li>
+</ul>
+</li>
+<li class="menu-element" id="panel-notifications">
+<a href="javascript:void(0)" onclick="Zadanium.execute({&quot;relative&quot;:&quot;panel.onDomReady&quot;,&quot;method&quot; : &quot;panel.buttonClickAction&quot;, args : [event, this]});" data-track="click_notification_link">Powiadomienia</a> <ul>
+<li class="header">
+<h3>Powiadomienia</h3>
+</li>
+<li class="notifications-container">
+<ul class="notifications">
+</ul>
+</li>
+<li class="footer"></li>
+</ul>
+</li>
+<li class="menu-element styled" id="community_new">
+<a href="javascript:void(0)" onclick="Zadanium.execute({&quot;relative&quot;:&quot;panel.onDomReady&quot;,&quot;method&quot; : &quot;panel.buttonClickAction&quot;, args : [event, this]});" data-track="click_social_link">Społeczność</a><ul class="community">
+<div id="community">
+<ul class="no-group">
+<li><a href="#buddies-container">Znajomi</a></li>
+<li><a href="#invitations-container">Zaproszenia</a></li>
+</ul>
+<div id="buddies-container">
+<div class="header">
+<div class="input-append">
+<input name="data[nick2find]" type="text" id="nick2find" class="input-medium" placeholder="Podaj nick..." value=""/>
+<a id="buddy-search-link" class="btn" href="/users/search" title="Szukaj  w całym serwisie"><i class="icon-search"></i></a>
+</div>
+</div>
+<div class="search-nick"></div>
+<ul id="ajax_buddies">
+<li class="buddy buddy-5034172" nick="k3nn7" z-data='{&quot;showStatus&quot;:true,&quot;preventDestroy&quot;:true,&quot;id&quot;:5034172,&quot;nick&quot;:&quot;k3nn7&quot;,&quot;lowerNick&quot;:&quot;k3nn7&quot;,&quot;avatar&quot;:{&quot;src&quot;:&quot;http:\/\/pl.static.z-dn.net\/files\/d99\/8659f0be20dbb9ac27b5344da73917db.jpg&quot;,&quot;onerror&quot;:&quot;imgError(this, \u0027http:\/\/zadane.pl\/img\/avatars\/50-ON.png\u0027);&quot;,&quot;style&quot;:&quot;max-width: 32px; max-height:32px;&quot;}}'>
+<a href="/profil/k3nn7-5034172">
+<div class="avatarContainer">
+<img src="http://pl.static.z-dn.net/files/d99/8659f0be20dbb9ac27b5344da73917db.jpg" style="max-width: 32px; max-height:32px;" onerror="imgError(this, 'http://zadane.pl/img/avatars/50-ON.png');" alt="k3nn7" title="k3nn7"/>
+</div>
+<div class="content">
+<div class="user">
+<p class="name">
+<span>k3nn7</span>
+<i class="buddy-online"></i>
+<i class="buddy-away"></i>
+</p>
+<p class="ranks" style="color: #cf21cf;">Programista </p>
+</div>
+</div>
+</a>
+<div class="buttons">
+</div>
+</li>
+</ul>
+<div class="buddy-show-all">
+<a href="/profil/montmorillonit-6680665/friends#tabIdfriends" class="show-all">Zobacz wszystkich znajomych</a> </div>
+</div>
+<div id="invitations-container">
+<ul class="invitations">
+</ul>
+<ul class="invitation-links">
+<li><a href="/buddies_new/invitations">zaproszenia do znajomych</a></li>
+</ul>
+</div>
+<div class="footer"></div>
+</div>
+</ul>
+<script>
+	$(document).ready(function() {  
+		$( "#community" ).tabs({ fx: [{opacity:'toggle', duration:'fast'},  
+		                              {opacity:'toggle', duration:'fast'}] });
+		
+			});
+
+</script> </li>
+<li class="menu-element profile styled">
+<a href="javascript:void(0)" onclick="Zadanium.execute({&quot;relative&quot;:&quot;panel.onDomReady&quot;,&quot;method&quot; : &quot;panel.buttonClickAction&quot;, args : [event, this]});" data-track="click_profile_menu"><img src="http://pl.static.z-dn.net/files/d47/136481b852f6d7b91d1122b6ce0deb2d.jpg" title="montmorillonit" style="max-width: 26px; max-height:26px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ONA.png&#039;);" alt=""/><span>montmorillonit</span><span class="points">203</span></a> <div class="profile-content">
+<div class="top">
+<div class="left">
+<a href="/profil/montmorillonit-6680665" title="montmorillonit" style="width: 65px; height: 65px;"><img src="http://pl.static.z-dn.net/files/d47/136481b852f6d7b91d1122b6ce0deb2d.jpg" title="montmorillonit" style="max-width: 65px; max-height:65px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/65-ONA.png&#039;);" alt=""/></a>
+<h3><span class="points">203</span> <span>punktów</span></h3>
+</div>
+<div class="right">
+<h2><a href="/profil/montmorillonit-6680665"><span class="name"><span>montmorillonit</span></span></a>
+<a href="/ranks/index" style="color:#f26522">Rozwiązujący</a>
+</h2>
+<a href="/users/view" data-track="click_profile_menu_see">Zobacz</a> <a href="/users/profile" data-track="click_profile_menu_edit">Edytuj profil</a>
+</div>
+</div>
+<a href="/logout" class="footer" data-track="click_logout">Wyloguj</a> </div>
+</li>
+ 
+</ul>
+</div>
+</div> <div class="container_24" id="container">
+<div clickbox="header" id="header" class="grid_24">
+<div class="grid_4 alpha">
+<a href="/" data-track="click_top_logo">
+<div class="grid_4 alpha">
+<img src="/img/pl/logo_small.png" alt=""/> </div>
+<div class="clear"></div>
+<h2 id="zadane-text" class="grid_4">
+Uczymy się w grupie </h2>
+</a>
+</div>
+<div class="grid_8" style="text-align: center; width: 310px;">
+&nbsp;
+</div>
+<div id="search-top" class="grid_13 omega cba" style="z-index: 0; position: relative;">
+<form action="/szukaj" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-6782929613561816:6368904694"/>
+<input type="hidden" name="cof" value="FORID:10"/>
+<input type="hidden" name="ie" value="UTF-8"/>
+<span class="glass" data-track="use_search"><i></i></span>
+<input type="text" name="q" size="31" id="search-query" data-track="use_search"/>
+<script type="text/javascript">
+	 	
+	 		function checkBeforeSubmit(event){
+	 			if($('form#cse-search-box input#search-query').val() == ''){
+	 				alert('Wpisz frazę do wyszukania');
+	 				event.preventDefault();	
+	 			} else {
+	 				return true;
+	 			}	 			
+	 		}
+	 	
+	 		$('form#cse-search-box input[type=submit]').bind('click',function(event){
+	 			checkBeforeSubmit(event);
+	 		});
+	 		
+	 		$('.glass').bind('click',function(event){
+	 			if(checkBeforeSubmit(event)){
+					$(this).parents('form').submit();
+	 			}
+			});
+			
+	 	</script>
+</div>
+</form>
+<script type="text/javascript" src="https://www.google.pl/coop/cse/brand?form=cse-search-box&amp;lang=pl"></script>
+<script type="text/javascript"> 
+			$('div#search-top input#search-query').css({'border': '', 'padding': ''});			
+		</script>
+</div>
+</div>
+ 
+<div id="top" class="grid_24" style="background: none;">
+<div class="dfp-ads-wrapper" id="google_ads_wrapperdiv_top_top"><script type='text/javascript'>(typeof GA_googleFillSlot === 'function') ? GA_googleFillSlot("top_top") : null;</script></div> </div>
+<div class="clear"></div>
+<div id="content-old" class="grid_24">
+<div id="profile">
+<div id="main-left">
+<div class="personal_info">
+<div class="header">
+<div class="avatar">
+<a href="/profil/montmorillonit-6680665" title="montmorillonit" style="width: 100px; height: 100px;"><img src="http://pl.static.z-dn.net/files/d85/f998fc66962955ffebd1405a36135761.jpg" alt="montmorillonit" title="montmorillonit" style="max-width: 100px; max-height:100px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/100-ONA.png&#039;);"/></a> </div>
+<div class="info">
+<div class="info_top">
+<span class="ranking">
+<h2>
+<a href="/profil/montmorillonit-6680665">montmorillonit</a> </h2>
+<a href="/users/profile" class="btn zadane-blue btn-mini edit_profile"><i class="icon-pencil icon-white"></i><span>Edytuj profil</span></a> </span>
+<span class="rank">
+<h3>
+<a href="/ranks/index" style="color:#f26522">Rozwiązujący</a>
+</h3>
+<span class="green">
+on-line </span>
+</span>
+<span class="points">
+<h1 class="orange bold">203</h1>
+<span>punktów</span>
+</span>
+</div>
+<div class="info_bottom">
+<div class="danke" style="padding-top: 5px">
+<span>
+Podziękowało Ci już 6 osób </span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<ul class="extra-info">
+<li><span>Wiek</span> : 22</li>
+<li><span>Poziom</span>: Liceum/Technikum</li>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="helped_info">
+<h3 class="bold dark_grey">
+Najwięcej pomogła z...
+</h3>
+<ul class="helped_subjects blue">
+<li style="font-size: 170%;">
+<span class="bold">
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span> (12 i <span class="green">2 Naj</span>)
+</li>
+<li style="font-size: 160%;">
+<span class="bold">
+<a href="/archiwum/2-Chemia">Chemia</a> </span> (5 i <span class="green">2 Naj</span>)
+</li>
+<li style="font-size: 150%;">
+<span class="bold">
+<a href="/archiwum/10-Polski">Polski</a> </span> (2)
+</li>
+<li style="font-size: 140%;">
+<span class="bold">
+<a href="/archiwum/1-Biologia">Biologia</a> </span> (1)
+</li>
+</ul>
+</div>
+<div style="border-top: 1px solid #FF8700; padding-top: 5px; margin-top: 5px;">
+Zarejestrowany : <span>10.02.2015, 20:37</span>
+<span class="fright">Rozwiązanych zadań : <span>20</span></span>
+<br/>
+<span class="fright">Ostrzeżeń:<span class="orange">
+<a href="/users/view_user_warns/6680665">0</a>
+</span></span>
+<br/>
+<script type="text/javascript">
+function toggle() {
+	var ele = document.getElementById("profile-mod-panel");
+	var text = document.getElementById("showtext");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "Pokaż więcej danych";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "Ukryj więcej danych";
+	}
+}
+</script>
+<span class="pseudolink user-more-data" onclick="toggle()"><span id="showtext"> Pokaż więcej danych</span></span>
+<div id="profile-mod-panel" class="hidden">
+<ul>
+</ul>
+<ul>
+<li>Zarejestrowany : <span>10.02.2015, 20:37</span></li>
+<li>Rozwiązanych zadań : <span class="orange huge">20</span></li>
+<li>Zadanych zadań : <span class="orange huge">0</span></li>
+<li>Najlepszych rozwiązań : <span class="orange huge">4</span></li>
+<li>Najlepszych rozwiązań w 30 dniach: <span class="orange huge">4</span></li>
+<li>Ostrzeżeń: <span class="orange huge">0</span>
+<a href="/users/view_user_warns/6680665">Zobacz</a></li>
+<li>Zaznaczonych nadużyć <span class="orange huge">0</span></li>
+<li>Błednie zaznaczonych nadużyć <span class="orange huge">0</span></li>
+</ul>
+<script type="text/javascript">
+		$('.show-form').click(function() {
+			$(this).parent().find('form').toggle();
+		});
+	</script>
+</div> </div>
+</div>
+ 
+<div class="awards_to_obtain">
+<h3 class="bold dark_grey">Najbliższe osiągnięcia</h3>
+<div class="to_obtain">
+<a href="/users/view_awards#1">
+<img src="http://pl.static.z-dn.net/files/d8d/84b886d2a4f25d2e9b991bba068baee5.png" width="100px" height="100px" style="display:block" alt=""/>
+<span>&nbsp;</span>
+</a>
+<span class="title">100W</span>
+<div class="progress_bar">
+<div class="progress">
+<div class="made" style="width: 5%;">
+</div>
+</div>
+<span class="amount">5%</span>
+</div>
+</div>
+<div class="to_obtain">
+<a href="/users/view_awards#3">
+<img src="http://pl.static.z-dn.net/files/da0/5b1a21ce11a050c33d62fb0cd8932690.png" width="100px" height="100px" style="display:block" alt=""/>
+<span>&nbsp;</span>
+</a>
+<span class="title">Celna debeściara</span>
+<div class="progress_bar">
+<div class="progress">
+<div class="made" style="width: 80%;">
+</div>
+</div>
+<span class="amount">80%</span>
+</div>
+</div>
+<div class="to_obtain">
+<a href="/users/view_awards#4">
+<img src="http://pl.static.z-dn.net/files/dfe/329fdb4ccef76e51c793f2c022ef3a6a.png" width="100px" height="100px" style="display:block" alt=""/>
+<span>&nbsp;</span>
+</a>
+<span class="title">Klasowa gospodyni</span>
+<div class="progress_bar">
+<div class="progress">
+<div class="made" style="width: 0%;">
+</div>
+</div>
+<span class="amount">0%</span>
+</div>
+</div>
+<div class="to_obtain">
+<a href="/users/view_awards#11">
+<img src="http://pl.static.z-dn.net/files/da9/511a6d4b35e799fcfa1e099fd8563454.png" width="100px" height="100px" style="display:block" alt=""/>
+<span>&nbsp;</span>
+</a>
+<span class="title">Klasowa maratonka</span>
+<div class="progress_bar">
+<div class="progress">
+<div class="made" style="width: 57%;">
+</div>
+</div>
+<span class="amount">57%</span>
+</div>
+</div>
+</div>
+ 
+ 
+<div class="awards_obtained_new">
+<h3 class="bold dark_grey">Najnowsze osiągnięcia</h3>
+<div class="obtained" style="">
+<a href="/users/view_awards#4">
+<img src="http://pl.static.z-dn.net/files/df9/552fc502bea7f93a08d7f0fa561dc6bb.png" width="100px" height="100px" style="display:block" alt=""/>
+</a>
+<span class="title">Kumpela z ławki</span></div>
+</div>
+ 
+<div class="activity_info">
+<div id="tabs-doj"><ul id="main_menu"><li id="tabIdsolved" class="active"><span><span><a href="/profil/montmorillonit-6680665/solved">Rozwiązane</a></span></span></li><li id="tabIdfriends"><span><span><a href="/profil/montmorillonit-6680665/friends">Znajomi</a></span></span></li></ul></div>  
+<div id="tasksBox">
+<div id="tasks-solved" class="Users">
+<ol class="tasks-list">
+<li class="task ">
+<div class="task-header">
+<span class="fleft">
+<a href="/profil/mariawita2-6439612" class="title">mariawita2</a>
+<span class="level">&nbsp;
+<a href="/ranks/index" style="color:#ffa200">Początkujący</a>
+</span>
+<span class="category">
+w&nbsp;
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span>
+<span class="points">
+za&nbsp;
+5 pkt </span>
+</span>
+<span class="fright">
+<span class="endtime">
+2 dni temu </span>
+</span>
+<div class="clearfix"></div>
+</div>
+<div class="task-content">
+<a href="/zadanie/8775172">Jak to rozwiązać proszę o szybką odpowiedź.
+Pewien dorosły zaskroniec ma długość 1,03m, a jego młode o 0,83m krótsze.
+Ile razy dłuższy jest dorosły...</a> </div>
+</li>
+<li class="task ">
+<div class="task-header">
+<span class="fleft">
+<a href="/profil/wgolebiowska1-6683638" class="title">wgolebiowska1</a>
+<span class="level">&nbsp;
+<a href="/ranks/index" style="color:#ffa200">Początkujący</a>
+</span>
+<span class="category">
+w&nbsp;
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span>
+<span class="points">
+za&nbsp;
+5 pkt </span>
+</span>
+<span class="fright">
+<a href="/pages/mobile/104" class="mobile-ico iOS" title="Pytanie dodane przez iOS"><i></i></a>
+<span class="endtime">
+2 dni temu </span>
+<span class="via">
+<span>przez&nbsp;</span>
+<a href="/pages/mobile/204" target="_blank" title="Pytanie dodane przez iOS">iOS</a>
+</span>
+</span>
+<div class="clearfix"></div>
+</div>
+<div class="task-content">
+<a href="/zadanie/8775734">w większym kubku było 1,5 raza wiecej soku niż w mniejszym. Jacek wypił 3/4 soku z mniejszego kubka a Marcin 4/5 z większego kubka. w którym kubku zostalo...</a> </div>
+</li>
+<li class="task ">
+<div class="task-header">
+<span class="fleft">
+<a href="/profil/PrincessLuna13-6231906" class="title">PrincessLuna13</a>
+<span class="level">&nbsp;
+<a href="/ranks/index" style="color:#ffa200">Początkujący</a>
+</span>
+<span class="category">
+w&nbsp;
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span>
+<span class="points">
+za&nbsp;
+6 pkt </span>
+</span>
+<span class="fright">
+<a href="/pages/mobile/104" class="mobile-ico Android" title="Pytanie dodane przez Android"><i></i></a>
+<span class="endtime">
+3 dni temu </span>
+<span class="via">
+<span>przez&nbsp;</span>
+<a href="/pages/mobile/204" target="_blank" title="Pytanie dodane przez Android">Android</a>
+</span>
+</span>
+<div class="clearfix"></div>
+</div>
+<div class="task-content">
+<a href="/zadanie/8774120">zadanie w załączniku.
+8 i 9</a> </div>
+</li>
+<li class="task ">
+<div class="task-header">
+<span class="fleft">
+<a href="/profil/kitkat3-6683206" class="title">kitkat3</a>
+<span class="level">&nbsp;
+<a href="/ranks/index" style="color:#ffa200">Początkujący</a>
+</span>
+<span class="category">
+w&nbsp;
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span>
+<span class="points">
+za&nbsp;
+5 pkt </span>
+</span>
+<span class="fright">
+<a href="/pages/mobile/104" class="mobile-ico Android" title="Pytanie dodane przez Android"><i></i></a>
+<span class="endtime">
+3 dni temu </span>
+<span class="via">
+<span>przez&nbsp;</span>
+<a href="/pages/mobile/204" target="_blank" title="Pytanie dodane przez Android">Android</a>
+</span>
+</span>
+<div class="clearfix"></div>
+</div>
+<div class="task-content">
+<a href="/zadanie/8774146">Rozwiąż równanie :
+1/4(4x-3)=2-x
+Proszę szybko i dokładne działania daje naj naj !</a> </div>
+</li>
+<li class="task ">
+<div class="task-header">
+<span class="fleft">
+<a href="/profil/Skarbek1224-5490034" class="title">Skarbek1224</a>
+<span class="level">&nbsp;
+<a href="/ranks/index" style="color:#b86b00">Ambitny</a>
+</span>
+<span class="category">
+w&nbsp;
+<a href="/archiwum/18-Matematyka">Matematyka</a> </span>
+<span class="points">
+za&nbsp;
+5 pkt </span>
+</span>
+<span class="fright">
+<span class="endtime">
+4 dni temu </span>
+</span>
+<div class="clearfix"></div>
+</div>
+<div class="task-content">
+<a href="/zadanie/8769141">1.
+bluzka kosztowała 80zł po podwyżce kosztowała 92 zł.Ile było procent podwyżki?
+2.
+pączek kosztował 2,50zł po obniżce 0,60zł.Ile było procent...</a> </div>
+</li>
+</ol>
+<div class="pager">
+<span class="current">1</span> <span><a href="/profil/montmorillonit-6680665/solved/2">2</a></span> <span><a href="/profil/montmorillonit-6680665/solved/3">3</a></span> <span><a href="/profil/montmorillonit-6680665/solved/4">4</a></span><a href="/profil/montmorillonit-6680665/solved/2"> »</a> </div>
+</div>
+</div>
+</div>
+ 
+<div class="awards_obtained_old">
+<h3 class="bold dark_grey">Zdobyte osiągnięcia</h3>
+<div class="obtained">
+<a href="/users/view_awards#29">
+<img src="http://pl.static.z-dn.net/files/d33/3db37dca640793f76de180a6693cd4f9.png" width="100px" height="100px" style="display:block" alt=""/>
+</a>
+<span class="title">Oświecona</span>
+</div>
+<div class="obtained">
+<a href="/users/view_awards#20">
+<img src="http://pl.static.z-dn.net/files/da7/971a0fc68a22571fa699462a5eb5a849.png" width="100px" height="100px" style="display:block" alt=""/>
+</a>
+<span class="title">Świeżynka</span>
+</div>
+<div class="obtained">
+<a href="/users/view_awards#4">
+<img src="http://pl.static.z-dn.net/files/df9/552fc502bea7f93a08d7f0fa561dc6bb.png" width="100px" height="100px" style="display:block" alt=""/>
+</a>
+<span class="title">Kumpela z ławki</span>
+</div>
+</div>
+ 
+</div>
+<div id="main-right">
+ 
+<div class="danked">
+<h3 class="bold dark_grey">Podziękowali (6)</h3>
+<a href="/profil/stan155-6185059" title="stan155" style="width: 32px; height: 32px;" class="person"><img src="http://pl.static.z-dn.net/files/d64/243661288a98a45a50ebd48eac95dce6.jpg" title="stan155" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ONA.png&#039;);" alt=""/></a> <a href="/profil/Lenka1997-5237487" title="Lenka1997" style="width: 32px; height: 32px;" class="person"><img src="http://pl.static.z-dn.net/files/db1/059bce01ae32d146474b5597e3a85bda.jpg" title="Lenka1997" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ONA.png&#039;);" alt=""/></a> <a href="/profil/k3nn7-5034172" title="k3nn7" style="width: 32px; height: 32px;" class="person"><img src="http://pl.static.z-dn.net/files/d99/8659f0be20dbb9ac27b5344da73917db.jpg" title="k3nn7" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ON.png&#039;);" alt=""/></a> <a href="/profil/directioner556-6266343" title="directioner556" style="width: 32px; height: 32px;" class="person"><img src="http://pl.static.z-dn.net/files/df1/130ffd231fef917699d490f1e7afbe4b.jpg" title="directioner556" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ON.png&#039;);" alt=""/></a> <a href="/profil/Agapek123-5494326" title="Agapek123" style="width: 32px; height: 32px;" class="person"><img src="http://zadane.pl/img/avatars/50-ONA.png" title="Agapek123" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ONA.png&#039;);" alt=""/></a> <a href="/profil/hdfggs-6681202" title="hdfggs" style="width: 32px; height: 32px;" class="person"><img src="http://zadane.pl/img/avatars/50-ON.png" title="hdfggs" style="max-width: 32px; max-height:32px;" onerror="imgError(this, &#039;http://zadane.pl/img/avatars/50-ON.png&#039;);" alt=""/></a> </div>
+ 
+<div class="comments" id="profile-comments">
+</div>
+</div>
+</div>
+<div class="clear"></div>
+ 
+<div clickbox="patrons" id="patrons" class="grid_24 alpha omega">
+<div class="content">
+<h3>Patronujemy</h3>
+<span>
+<a href="/patronat/SGGW?f=1"><img src="http://pl.static.z-dn.net/files/d7b/44f77c2a747ecb4eb0890fa72ff5f0ba.jpg" alt=""/></a> </span>
+</div>
+</div>
+ 
+</div>
+</div>
+ 
+<div clickbox="footer" id="footer">
+<div class="container_24">
+<div class="grid_24">
+<div id="footer-left">
+ 
+<ul>
+<li>
+Strona korzysta z plików cookie w celu realizacji usług zgodnie z <span class="counter"><a href="/pages/polityka-cookie" rel="nofollow" data-track="footer_click_any_link">Polityką cookie</a></span>. Możesz określić warunki przechowywania lub dostępu do cookie w Twojej przeglądarce </li>
+</ul>
+</div>
+<div id="footer-right">
+<ul class="first">
+<li>
+<a href="/pages/faq" class="red" data-track="footer_click_any_link">POMOC</a><span class="space">|</span>
+</li>
+<li>
+<a href="/pages/regulamin" data-track="footer_click_any_link">Regulamin</a> <span class="space">|</span>
+</li>
+<li>
+<a href="/contact/index" data-track="footer_click_any_link">Kontakt</a> </li>
+</ul>
+<ul class="second">
+<li>
+<a href="/pages/bezpieczenstwo" data-track="footer_click_any_link">Bezpieczeństwo</a><span class="space">|</span>
+</li>
+<li>
+<a href="/pages/points" data-track="footer_click_any_link">Jak zdobyć punkty?</a> </li>
+</ul>
+<ul class="third">
+<li>
+<a href="/reklama" data-track="footer_click_any_link">Reklama</a><span class="space">|</span>
+</li>
+<li>
+<a href="http://brainly.co" rel="nofollow" target="_blank" data-track="footer_click_any_link">O nas</a><span class="space">|</span>
+</li>
+<li>
+<a href="/patronaty" data-track="footer_click_any_link">Patronaty</a><span class="space">|</span>
+</li>
+<li>
+<a href="http://brainly.co/jobs" target="_blank" data-track="footer_click_any_link">Kariera</a><span class="space">|</span>
+</li>
+</ul>
+</div> 
+<div class="clear"></div>
+ 
+<script type="text/javascript">
+		var _gaq = _gaq || [];
+		var trackAsLogged = (typeof document.cookie == "string") && (document.cookie.indexOf('[Auth][User]') > -1 || document.cookie.indexOf('[hasRegistered]') > -1 || document.cookie.indexOf('[hasLoggedIn]') > -1);
+								_gaq.push(['UA79396601._setAccount', 'UA-7939660-1']);
+			_gaq.push(['UA79396601._setDomainName', 'zadane.pl']);
+						if (trackAsLogged) {
+				_gaq.push(['UA79396601._setCustomVar',
+			  		4,
+			  		'UserType',
+			  		'L',
+			  		1
+				]);
+			}
+			_gaq.push(['UA79396601._trackPageview']);
+			if (trackAsLogged) {
+				_gaq.push(['UA79396601._deleteCustomVar', 4]);
+			}
+									_gaq.push(['UA371616792._setAccount', 'UA-37161679-2']);
+			_gaq.push(['UA371616792._setDomainName', 'zadane.pl']);
+						if (trackAsLogged) {
+				_gaq.push(['UA371616792._setCustomVar',
+			  		4,
+			  		'UserType',
+			  		'L',
+			  		1
+				]);
+			}
+			_gaq.push(['UA371616792._trackPageview']);
+			if (trackAsLogged) {
+				_gaq.push(['UA371616792._deleteCustomVar', 4]);
+			}
+									_gaq.push(['UA371656792._setAccount', 'UA-37165679-2']);
+			_gaq.push(['UA371656792._setDomainName', 'zadane.pl']);
+						if (trackAsLogged) {
+				_gaq.push(['UA371656792._setCustomVar',
+			  		4,
+			  		'UserType',
+			  		'L',
+			  		1
+				]);
+			}
+			_gaq.push(['UA371656792._trackPageview']);
+			if (trackAsLogged) {
+				_gaq.push(['UA371656792._deleteCustomVar', 4]);
+			}
+									_gaq.push(['UA571652581._setAccount', 'UA-57165258-1']);
+			_gaq.push(['UA571652581._setDomainName', 'zadane.pl']);
+						if (trackAsLogged) {
+				_gaq.push(['UA571652581._setCustomVar',
+			  		4,
+			  		'UserType',
+			  		'L',
+			  		1
+				]);
+			}
+			_gaq.push(['UA571652581._trackPageview']);
+			if (trackAsLogged) {
+				_gaq.push(['UA571652581._deleteCustomVar', 4]);
+			}
+						
+											if (trackAsLogged) {
+					_gaq.push(['UA793966012._setAccount', 'UA-7939660-12']);
+					_gaq.push(['UA793966012._setDomainName', 'zadane.pl']);
+					_gaq.push(['UA793966012._trackPageview']);
+				}
+						
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	</script>
+<script type="text/javascript">		
+	$(document).ready(function() {							
+		var events = $.cookie('analytics');			
+		if(events !== null && events !== 'null'){	
+			events = $.parseJSON(base64_decode(events));
+			if(events !== null){
+				for(i in events){
+					if(events[i].action !== null){						
+																					_gaq.push(['UA79396601._trackEvent',events[i].category,events[i].action,events[i].label,events[i].value]);
+																												_gaq.push(['UA371616792._trackEvent',events[i].category,events[i].action,events[i].label,events[i].value]);
+																												_gaq.push(['UA371656792._trackEvent',events[i].category,events[i].action,events[i].label,events[i].value]);
+																												_gaq.push(['UA571652581._trackEvent',events[i].category,events[i].action,events[i].label,events[i].value]);
+																			
+					}
+				}
+			}
+			$.cookie('analytics',null, {infobar : true});
+		}					
+	});
+</script>
+<script type="text/javascript">
+		_kmq.push(['identify', '6680665']);
+		$(document).ready(function() {					
+			var events = $.cookie('kiss');			
+			if(events !== null && events !== 'null'){	
+				events = $.parseJSON(base64_decode(events));
+				if(events !== null){					
+					for(i in events){
+						if(events[i].action !== null){
+							_kmq.push(['set', events[i].sets]);
+							_kmq.push(['record', events[i].action, events[i].params]);							
+						}
+					}
+				}
+				$.cookie('kiss',null, {infobar : true});
+			}			
+		});
+	</script>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+		$(document).ready(function() {
+			var infobar = $.cookie('Zadanepl_cookie[infobar]',{infobar: true});
+			if (infobar !== null  && (typeof infobar === 'string' && infobar.length > 1 && infobar !== 'null')) {
+				infobar = $.parseJSON(base64_decode(infobar));
+				for (msg in infobar) {
+					if(typeof infobar[msg] === 'object') {
+						Zadanium.namespace('flash_msg').setMsg(infobar[msg]['text'].replace(/\+/g,' '), infobar[msg]['class']);
+					}
+				}
+				$.cookie('Zadanepl_cookie[infobar]',null,{ infobar: true});				
+			}
+		});
+	</script>
+<ul class="chat-bind-elements">
+</ul>
+<div id="toplayer" class="hidden" style="display: none;">
+<div class="contener-center" style="width: 500px; height: 240;" z-data='{&quot;type&quot;:&quot;html&quot;,&quot;id&quot;:&quot;newMessageBox&quot;,&quot;visible&quot;:false}'>
+<div class="contener newMessageBox">
+<div class="title">
+<div class="text">Nowa wiadomość</div>
+<div class="options">
+<div class="close"><i></i></div>
+</div>
+</div>
+<div class="content" style="height: 144;"><div class="container">
+<div class="search-buddy">
+<input type="text" id="MessageForWho" name="MessageForWho" placeholder="Zacznij wpisywać nick"/>
+</div>
+<div class="message-form">
+<form id="newMessageStatic" method="post" action="/chats/send_form_message">
+<input type="hidden" id="otherId" name="otherId" value=""/>
+<textarea id="msgContent" name="msgContent" class="body" rows="2" cols="20" placeholder="Wpisz treść"></textarea>
+</form>
+</div>
+</div></div>
+<div class="footer">
+<div class="buttons">
+<div class="sendMsg btn zadane-blue" z-data='{&quot;actionType&quot;:&quot;toplayer&quot;,&quot;action&quot;:&quot;onClickCallback&quot;,&quot;id&quot;:&quot;send&quot;}'>Wyślij</div>
+</div>
+<div class="throbber"><img src="/img/throbber.gif" alt=""/></div>
+</div>
+</div>
+</div></div>
+</body>
+</html>
