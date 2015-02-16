@@ -9,14 +9,39 @@ import (
     "errors"
     "strconv"
     "net/url"
+    "encoding/json"
 )
 
-getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
+func getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
     result := make(map[string]string)
 
+    raw, _ := getTaskMainViewJson(taskId)
+
+    decoded := make(map[string]interface{})
+
+    json.Unmarshal([]byte(raw), &decoded)
+    data := decoded["data"].(map[string]interface{})
+    responses := data["responses"].([]interface{})
+
+    userResponse, _ := getUserReponseDetails(userId, responses)
+    createdDate := userResponse["created"].(string)
+
+    result["created"] = createdDate
 
 
     return result, nil
+}
+
+func getUserReponseDetails(userId int, responses []interface{}) (map[string]interface{}, error) {
+    for _, response := range responses {
+        details := response.(map[string]interface{})
+        detailsUserId := int(details["user_id"].(float64))
+        if detailsUserId == userId {
+            return details, nil
+        }
+    }
+
+    return make(map[string]interface{}), nil
 }
 
 func getProfileDetails(url string) (map[string]string, error) {
@@ -116,6 +141,18 @@ func getProfileHtml(url string) (string, error) {
     html, _ := ioutil.ReadFile(profilePath.String())
 
     return string(html), nil
+}
+
+func getTaskMainViewJson(taskId int) (string, error) {
+    var endpointPath bytes.Buffer
+    pwd, _ := os.Getwd()
+
+    endpointPath.WriteString(pwd)
+    endpointPath.WriteString("/assets/tasks.main_view.json")
+
+    json, _ := ioutil.ReadFile(endpointPath.String())
+
+    return string(json), nil
 }
 
 func getElement(n *html.Node, tag, attr, value string) (*html.Node, error) {
