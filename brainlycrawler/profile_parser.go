@@ -12,7 +12,15 @@ import (
     "encoding/json"
 )
 
-func getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
+type ProfileParser struct {
+
+}
+
+func CreateProfileParser() *ProfileParser {
+    return new(ProfileParser)
+}
+
+func (p *ProfileParser) getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
     result := make(map[string]string)
 
     raw, _ := getTaskMainViewJson(taskId)
@@ -25,9 +33,10 @@ func getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
 
     userResponse, _ := getUserReponseDetails(userId, responses)
     createdDate := userResponse["created"].(string)
+    id := int(userResponse["id"].(float64))
 
     result["created"] = createdDate
-
+    result["id"] = strconv.Itoa(id)
 
     return result, nil
 }
@@ -44,7 +53,7 @@ func getUserReponseDetails(userId int, responses []interface{}) (map[string]inte
     return make(map[string]interface{}), nil
 }
 
-func getProfileDetails(url string) (map[string]string, error) {
+func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error) {
     result := make(map[string]string)
 
     body, _ := getProfileHtml(url)
@@ -59,7 +68,7 @@ func getProfileDetails(url string) (map[string]string, error) {
     return result, nil
 }
 
-func getTasksIdsFromPage(url string) ([]int, error) {
+func (p *ProfileParser) getTasksIdsFromPage(url string) ([]int, error) {
     ids := make([]int, 0)
 
     body, _ := getProfileHtml(url)
@@ -86,7 +95,7 @@ func getTasksIdsFromPage(url string) ([]int, error) {
     return ids, nil
 }
 
-func getUrlsWithSolvedTasks(profileUrl string) ([]string, error) {
+func (p *ProfileParser) getUrlsWithSolvedTasks(profileUrl string) ([]string, error) {
     urls := make([]string, 0)
     urls = append(urls, profileUrl)
 
@@ -96,7 +105,7 @@ func getUrlsWithSolvedTasks(profileUrl string) ([]string, error) {
     tasksSolved, _ := getElement(doc, "div", "id", "tasks-solved")
     pager, _ := getElement(tasksSolved, "div", "class", "pager")
 
-    siteUrl, _ := getSiteFromProfileUrl(profileUrl)
+    siteUrl, _ := p.getSiteFromProfileUrl(profileUrl)
 
     for span := pager.FirstChild; span != nil; span = span.NextSibling {
         if getAttrValue(span, "class") == "current" {
@@ -120,7 +129,7 @@ func getUrlsWithSolvedTasks(profileUrl string) ([]string, error) {
     return urls, nil
 }
 
-func getSiteFromProfileUrl(profileUrl string) (string, error) {
+func (p *ProfileParser) getSiteFromProfileUrl(profileUrl string) (string, error) {
     var site bytes.Buffer
 
     u, _ := url.Parse(profileUrl)

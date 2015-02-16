@@ -2,10 +2,16 @@ package brainlycrawler
 
 import "testing"
 
+var profileParser *ProfileParser
+
+func profileParserTest() {
+    profileParser = CreateProfileParser()
+}
+
 func TestGetUserDetails(t *testing.T) {
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
-    results, err := getProfileDetails(profileUrl)
+    results, err := profileParser.getProfileDetails(profileUrl)
 
     if err != nil {
         t.Errorf("Unexpected error: %s", err)
@@ -19,7 +25,7 @@ func TestGetUserDetails(t *testing.T) {
 func TestGetTasksIdsFromPage(t *testing.T) {
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
-    results, err := getTasksIdsFromPage(profileUrl)
+    results, err := profileParser.getTasksIdsFromPage(profileUrl)
     expected := []int{8775172, 8775734, 8774120, 8774146, 8769141}
 
     if err != nil {
@@ -36,7 +42,7 @@ func TestGetTasksIdsFromPage(t *testing.T) {
 func TestGetSiteFromProfileUrl(t *testing.T) {
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
-    result, err := getSiteFromProfileUrl(profileUrl)
+    result, err := profileParser.getSiteFromProfileUrl(profileUrl)
 
     if err != nil {
         t.Errorf("Unexpected error: %s", err)
@@ -50,7 +56,7 @@ func TestGetSiteFromProfileUrl(t *testing.T) {
 func TestGetTasksSolvedPagesUrls(t *testing.T) {
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
-    results, err := getUrlsWithSolvedTasks(profileUrl)
+    results, err := profileParser.getUrlsWithSolvedTasks(profileUrl)
     expected := []string{
         "http://zadane.pl/profil/montmorillonit-6680665",
         "http://zadane.pl/profil/montmorillonit-6680665/solved/2",
@@ -73,14 +79,19 @@ func TestGetUserAnswerDetailsForTask(t *testing.T) {
     userId := 6680665
     taskId := 8791911
 
-    results, err := getUserAnswerDetails(userId, taskId)
-    expected := "2015-02-15 22:35:21"
+    results, err := profileParser.getUserAnswerDetails(userId, taskId)
+    created := "2015-02-15 22:35:21"
+    externalId := "9094857"
 
     if err != nil {
         t.Errorf("Unexpected error: %s", err)
     }
 
-    if results["created"] !=  expected {
-        t.Errorf("Expected created date: %s, got: %s", expected, results["created"])
+    if results["created"] !=  created {
+        t.Errorf("Expected created date: %s, got: %s", created, results["created"])
+    }
+
+    if results["id"] != externalId {
+        t.Errorf("Expected id: %s, got: %s", externalId, results["id"])
     }
 }
