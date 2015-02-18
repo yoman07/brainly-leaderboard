@@ -81,10 +81,11 @@ func TestGetTasksSolvedPagesUrls(t *testing.T) {
 
 func TestGetUserAnswerDetailsForTask(t *testing.T) {
     profileParserTest()
+    profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
     userId := 6680665
     taskId := 8791911
 
-    results, err := profileParser.getUserAnswerDetails(userId, taskId)
+    results, err := profileParser.getUserAnswerDetails(profileUrl, userId, taskId)
     created := "2015-02-15 22:35:21"
     externalId := "9094857"
 

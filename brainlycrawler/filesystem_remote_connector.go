@@ -26,7 +26,7 @@ func (c *FilesystemRemoteConnector) GetProfileHtml(url string) (string, error) {
     return string(html), nil
 }
 
-func (c *FilesystemRemoteConnector) GetTaskMainViewJson(taskId int) (string, error) {
+func (c *FilesystemRemoteConnector) GetTaskMainViewJson(url string) (string, error) {
     var endpointPath bytes.Buffer
     pwd, _ := os.Getwd()
 

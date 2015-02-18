@@ -20,10 +20,16 @@ func CreateProfileParser(c RemoteConnector) *ProfileParser {
     return parser
 }
 
-func (p *ProfileParser) getUserAnswerDetails(userId, taskId int) (map[string]string, error) {
+func (p *ProfileParser) getUserAnswerDetails(profileUrl string, userId, taskId int) (map[string]string, error) {
+    var endpointUrl bytes.Buffer
+    siteDomain, _ := p.getSiteFromProfileUrl(profileUrl)
+    endpointUrl.WriteString(siteDomain)
+    endpointUrl.WriteString("/api/21/api_tasks/main_view/")
+    endpointUrl.WriteString(strconv.Itoa(taskId))
+
     result := make(map[string]string)
 
-    raw, _ := p.connector.GetTaskMainViewJson(taskId)
+    raw, _ := p.connector.GetTaskMainViewJson(endpointUrl.String())
 
     decoded := make(map[string]interface{})
 
