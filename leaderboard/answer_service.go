@@ -18,6 +18,7 @@ func (a *AnswerService) UpdateUserAnswers(userId int) error {
     answers, _ := a.connector.GetUserAnswers(user.ProfileUrl)
 
     for _, answer := range answers {
+        answer.UserId = userId
         _, err := a.repository.FindUserAnswerByExternalId(userId, answer.ExternalId)
         if err != nil {
             a.repository.SaveAnswer(answer)
