@@ -4,6 +4,8 @@ import (
     "bytes"
     "os"
     "io/ioutil"
+    "strings"
+    "strconv"
 )
 
 type FilesystemRemoteConnector struct {
@@ -37,10 +39,22 @@ func (c *FilesystemRemoteConnector) GetTaskMainViewJson(url string) (string, err
     var endpointPath bytes.Buffer
     pwd, _ := os.Getwd()
 
+    taskId, _ := c.extractTaskIdFromUrl(url)
+
     endpointPath.WriteString(pwd)
-    endpointPath.WriteString("/assets/tasks.main_view.json")
+    endpointPath.WriteString("/assets/")
+    endpointPath.WriteString(strconv.Itoa(taskId))
+    endpointPath.WriteString(".json")
 
     json, _ := ioutil.ReadFile(endpointPath.String())
 
     return string(json), nil
+}
+
+func (c *FilesystemRemoteConnector) extractTaskIdFromUrl(url string) (int, error) {
+    dashPos := strings.LastIndex(url, "/")
+    length := len(url)
+    taskId := url[dashPos+1:length]
+    intval, _ := strconv.ParseInt(taskId, 10, 0)
+    return int(intval), nil
 }

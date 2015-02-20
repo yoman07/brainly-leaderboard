@@ -2,7 +2,6 @@ package brainlycrawler
 
 import (
     "github.com/k3nn7/leaderboard/leaderboard"
-    "fmt"
     "strings"
     "strconv"
     "time"
@@ -12,9 +11,9 @@ type CrawlerConnector struct {
     profileParser *ProfileParser
 }
 
-func CreateCrawlerConnector() *CrawlerConnector {
+func CreateCrawlerConnector(r RemoteConnector) *CrawlerConnector {
     crawler := new(CrawlerConnector)
-    crawler.profileParser = CreateProfileParser(CreateHttpRemoteConnector())
+    crawler.profileParser = CreateProfileParser(r)
     return crawler
 }
 
@@ -26,8 +25,6 @@ func (c *CrawlerConnector) GetUserAnswers(profileUrl string) ([]leaderboard.Answ
 
     taskIds, _ = c.profileParser.getAllTasksIdsForUser(profileUrl)
 
-    fmt.Println("All ids: ", taskIds)
-
     for _, taskId := range taskIds {
         var answer leaderboard.Answer
         answerDetails, _ := c.profileParser.getUserAnswerDetails(profileUrl, userId, taskId)
@@ -36,7 +33,6 @@ func (c *CrawlerConnector) GetUserAnswers(profileUrl string) ([]leaderboard.Answ
         answer.UserId = userId
         answer.Created = c.convertTimeToTimestamp(answerDetails["created"])
         answers = append(answers, answer)
-        fmt.Println(answerDetails)
     }
 
 
@@ -50,7 +46,6 @@ func (c *CrawlerConnector) GetUserDetails(profileUrl string) (map[string]string,
 func (c *CrawlerConnector) extractUserIdFromProfileUrl(profileUrl string) (int, error) {
     dashPos := strings.LastIndex(profileUrl, "-")
     length := len(profileUrl)
-    fmt.Println("Dashpos: ", dashPos, " length: ", length)
     userId := profileUrl[dashPos+1:length]
     intval, _ := strconv.ParseInt(userId, 10, 0)
     return int(intval), nil

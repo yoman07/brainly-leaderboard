@@ -4,15 +4,28 @@ import (
     "testing"
 )
 
-func TestGetUserAnswers(t *testing.T) {
-    // connector := CreateCrawlerConnector()
+var connector *CrawlerConnector
 
-    // answers, _ := connector.GetUserAnswers("http://brainly.com/profile/NyteRyder-324108", 324108)
-    // fmt.Println(answers)
+func crawlerConnectorTest() {
+    connector = CreateCrawlerConnector(CreateFilesystemRemoteConnector())
+}
+
+func TestGetUserAnswers(t *testing.T) {
+    crawlerConnectorTest()
+
+    answers, _ := connector.GetUserAnswers("http://zadane.pl/profil/montmorillonit-6680665")
+    expectedExternalIds := []int{9097505, 9097439, 9097199, 9097025, 9096902,
+                      9094857, 9094799, 9094724, 9081419, 9079785}
+
+    for i, _ := range expectedExternalIds {
+        if answers[i].ExternalId != expectedExternalIds[i] {
+            t.Errorf("Unexpected value: Expecting: %d, got: %d", expectedExternalIds[i], answers[i].ExternalId)
+        }
+    }
 }
 
 func TestExtractUserIdFromProfileUrl(t *testing.T) {
-    connector := CreateCrawlerConnector()
+    crawlerConnectorTest()
 
     userId, err := connector.extractUserIdFromProfileUrl("http://brainly.com/profile/NyteRyder-324108")
 
@@ -26,7 +39,7 @@ func TestExtractUserIdFromProfileUrl(t *testing.T) {
 }
 
 func TestConvertTimeToTimestamp(t *testing.T) {
-    connector := CreateCrawlerConnector()
+    crawlerConnectorTest()
 
     timestamp := connector.convertTimeToTimestamp("2015-02-11 13:55:12")
 
