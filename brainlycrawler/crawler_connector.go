@@ -20,18 +20,11 @@ func CreateCrawlerConnector() *CrawlerConnector {
 
 func (c *CrawlerConnector) GetUserAnswers(profileUrl string) ([]leaderboard.Answer, error) {
     userId, _ := c.extractUserIdFromProfileUrl(profileUrl)
-    urls, _ := c.profileParser.getUrlsWithSolvedTasks(profileUrl)
     answers := make([]leaderboard.Answer, 0)
 
     taskIds := make([]int, 0)
 
-    for _, url := range urls {
-        ids, _ := c.profileParser.getTasksIdsFromPage(url)
-        fmt.Println("ids from %s: %v", url, ids)
-        for _, taskId := range ids {
-            taskIds = append(taskIds, taskId)
-        }
-    }
+    taskIds, _ = c.profileParser.getAllTasksIdsForUser(profileUrl)
 
     fmt.Println("All ids: ", taskIds)
 

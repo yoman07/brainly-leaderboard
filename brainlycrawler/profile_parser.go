@@ -128,40 +128,6 @@ func (p *ProfileParser) getTasksIdsFromPage(url string) ([]int, error) {
     return ids, nil
 }
 
-func (p *ProfileParser) getUrlsWithSolvedTasks(profileUrl string) ([]string, error) {
-    urls := make([]string, 0)
-    urls = append(urls, profileUrl)
-
-    body, _ := p.connector.GetProfileHtml(profileUrl)
-    doc, _ := html.Parse(strings.NewReader(body))
-
-    tasksSolved, _ := getElement(doc, "div", "id", "tasks-solved")
-    pager, _ := getElement(tasksSolved, "div", "class", "pager")
-
-    siteUrl, _ := p.getSiteFromProfileUrl(profileUrl)
-
-    for span := pager.FirstChild; span != nil; span = span.NextSibling {
-        if getAttrValue(span, "class") == "current" {
-            continue
-        }
-
-        if span.Data != "span" {
-            continue
-        }
-
-        link, _ := getTag(span, "a")
-
-        var fullUrl bytes.Buffer
-        pageUrl := getAttrValue(link, "href")
-        fullUrl.WriteString(siteUrl)
-        fullUrl.WriteString(pageUrl)
-
-        urls = append(urls, fullUrl.String())
-    }
-
-    return urls, nil
-}
-
 func (p *ProfileParser) getSiteFromProfileUrl(profileUrl string) (string, error) {
     var site bytes.Buffer
 
