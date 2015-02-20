@@ -74,6 +74,33 @@ func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error)
     return result, nil
 }
 
+func (p *ProfileParser) getAllTasksIdsForUser(url string) ([]int, error) {
+    returnIds := make([]int, 0)
+
+    ids, _ := p.getTasksIdsFromPage(url)
+    for _, id := range ids {
+        returnIds = append(returnIds, id)
+    }
+
+    for i := 2; i < 5; i++ {
+        var urlWithPage bytes.Buffer
+        urlWithPage.WriteString(url)
+        urlWithPage.WriteString("/solved/")
+        urlWithPage.WriteString(strconv.Itoa(i))
+        ids, _ := p.getTasksIdsFromPage(urlWithPage.String())
+
+        if len(ids) == 0 {
+            return returnIds, nil
+        }
+
+        for _, id := range ids {
+            returnIds = append(returnIds, id)
+        }
+    }
+
+    return returnIds, nil
+}
+
 func (p *ProfileParser) getTasksIdsFromPage(url string) ([]int, error) {
     ids := make([]int, 0)
 

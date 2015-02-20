@@ -19,7 +19,14 @@ func (c *FilesystemRemoteConnector) GetProfileHtml(url string) (string, error) {
     pwd, _ := os.Getwd()
 
     profilePath.WriteString(pwd)
-    profilePath.WriteString("/assets/montmorillonit.html")
+
+    if url == "http://zadane.pl/profil/montmorillonit-6680665" {
+        profilePath.WriteString("/assets/montmorillonit.html")
+    }
+    if url == "http://zadane.pl/profil/montmorillonit-6680665/solved/2" {
+        profilePath.WriteString("/assets/montmorillonit-2.html")
+    }
+
 
     html, _ := ioutil.ReadFile(profilePath.String())
 

@@ -28,7 +28,27 @@ func TestGetTasksIdsFromPage(t *testing.T) {
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
 
     results, err := profileParser.getTasksIdsFromPage(profileUrl)
-    expected := []int{8775172, 8775734, 8774120, 8774146, 8769141}
+    expected := []int{8794339, 8794089, 8794185, 8793666, 8793918}
+
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
+
+    for i, _ := range expected {
+        if results[i] != expected[i] {
+            t.Errorf("Unexpected value: Expecting: %d, got: %d", expected[i], results[i])
+        }
+    }
+}
+
+func TestGetAllTasksIdsForUser(t *testing.T) {
+    profileParserTest()
+    profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
+
+    results, err := profileParser.getAllTasksIdsForUser(profileUrl)
+    expected := []int{8794339, 8794089, 8794185, 8793666, 8793918,
+                      8791911, 8791858, 8786974, 8775172, 8775734,
+                  }
 
     if err != nil {
         t.Errorf("Unexpected error: %s", err)
@@ -53,29 +73,6 @@ func TestGetSiteFromProfileUrl(t *testing.T) {
 
     if result != "http://zadane.pl" {
         t.Errorf("Unexpected result: %s. Should be: http://zadane.pl", result)
-    }
-}
-
-func TestGetTasksSolvedPagesUrls(t *testing.T) {
-    profileParserTest()
-    profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
-
-    results, err := profileParser.getUrlsWithSolvedTasks(profileUrl)
-    expected := []string{
-        "http://zadane.pl/profil/montmorillonit-6680665",
-        "http://zadane.pl/profil/montmorillonit-6680665/solved/2",
-        "http://zadane.pl/profil/montmorillonit-6680665/solved/3",
-        "http://zadane.pl/profil/montmorillonit-6680665/solved/4",
-    }
-
-    if err != nil {
-        t.Errorf("Unexpected error: %s", err)
-    }
-
-    for i, _ := range expected {
-        if results[i] != expected[i] {
-            t.Errorf("Unexpected value: Expecting: %s, got: %s", expected[i], results[i])
-        }
     }
 }
 
