@@ -1,24 +1,15 @@
 package main
 
 import (
-    "github.com/k3nn7/leaderboard/leaderboard"
     "net/http"
     "fmt"
+    "encoding/json"
 )
 
 func ScoreIndex(w http.ResponseWriter, r *http.Request) {
     ranking, _ := application.ContestService.GetRanking()
 
-    userIds, _ := application.UserService.GetAllUsersIds()
-    users := make([]leaderboard.User, 0)
+    rankingJson, _ := json.Marshal(ranking)
 
-    for _, userId := range userIds {
-        user, _ := application.UserService.GetUser(userId)
-        users = append(users, user)
-    }
-
-    fmt.Fprintf(w, "Users: %v", users)
-
-
-    fmt.Fprintf(w, "Ranking: %v", ranking)
+    fmt.Fprintf(w, string(rankingJson))
 }

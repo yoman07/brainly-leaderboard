@@ -6,6 +6,7 @@ import (
     "net/http"
     "fmt"
     "strconv"
+    "encoding/json"
 )
 
 func UsersIndex(w http.ResponseWriter, r *http.Request) {
@@ -17,7 +18,9 @@ func UsersIndex(w http.ResponseWriter, r *http.Request) {
         users = append(users, user)
     }
 
-    fmt.Fprintf(w, "Users: %v", users)
+    usersJson, _ := json.Marshal(users)
+
+    fmt.Fprintf(w, string(usersJson))
 }
 
 func UserAnswers(w http.ResponseWriter, r *http.Request) {
