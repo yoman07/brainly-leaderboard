@@ -17,23 +17,23 @@ func Wireup() App {
 
     repository := leaderboard.GetRepositoryMock()
 
-    repository.SaveUser(leaderboard.User{
-        ProfileUrl: "http://zadane.pl/profil/grzegorzostrow-6390443",
-        Name: "Grzegorz Ostrowski",
-        Nick: "grzegorzostrow",
-    })
+    // repository.SaveUser(leaderboard.User{
+    //     ProfileUrl: "http://zadane.pl/profil/grzegorzostrow-6390443",
+    //     Name: "Grzegorz Ostrowski",
+    //     Nick: "grzegorzostrow",
+    // })
 
-    repository.SaveUser(leaderboard.User{
-        ProfileUrl: "http://zadane.pl/profil/sokpomaranczowy-6387149",
-        Name: "Krzysztof Woliński",
-        Nick: "sokpomaranczowy",
-    })
+    // repository.SaveUser(leaderboard.User{
+    //     ProfileUrl: "http://zadane.pl/profil/sokpomaranczowy-6387149",
+    //     Name: "Krzysztof Woliński",
+    //     Nick: "sokpomaranczowy",
+    // })
 
-    repository.SaveUser(leaderboard.User{
-        ProfileUrl: "http://zadane.pl/profil/Sprzatacz-6385436",
-        Name: "Marta Ryłko",
-        Nick: "sprzatacz",
-    })
+    // repository.SaveUser(leaderboard.User{
+    //     ProfileUrl: "http://zadane.pl/profil/Sprzatacz-6385436",
+    //     Name: "Marta Ryłko",
+    //     Nick: "sprzatacz",
+    // })
 
     repository.SaveUser(leaderboard.User{
         ProfileUrl: "http://zadane.pl/profil/montmorillonit-6680665",
@@ -41,7 +41,7 @@ func Wireup() App {
         Nick: "montorillonit",
     })
 
-    connector := brainlycrawler.CreateCrawlerConnector()
+    connector := brainlycrawler.CreateCrawlerConnector(brainlycrawler.CreateFilesystemRemoteConnector())
 
     app.UserService = leaderboard.CreateUserService(
         repository,
