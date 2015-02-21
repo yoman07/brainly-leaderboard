@@ -82,7 +82,7 @@ func (p *ProfileParser) getAllTasksIdsForUser(url string) ([]int, error) {
         returnIds = append(returnIds, id)
     }
 
-    for i := 2; i < 5; i++ {
+    for i := 2; i < 100; i++ {
         var urlWithPage bytes.Buffer
         urlWithPage.WriteString(url)
         urlWithPage.WriteString("/solved/")
