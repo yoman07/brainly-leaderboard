@@ -41,7 +41,12 @@ func (p *ProfileParser) getUserAnswerDetails(profileUrl string, userId, taskId i
     data := decoded["data"].(map[string]interface{})
     responses := data["responses"].([]interface{})
 
-    userResponse, _ := getUserReponseDetails(userId, responses)
+    userResponse, err := getUserReponseDetails(userId, responses)
+
+    if err != nil {
+        return result, err
+    }
+
     createdDate := userResponse["created"].(string)
     id := int(userResponse["id"].(float64))
 
@@ -60,7 +65,7 @@ func getUserReponseDetails(userId int, responses []interface{}) (map[string]inte
         }
     }
 
-    return make(map[string]interface{}), nil
+    return make(map[string]interface{}), errors.New("Response not found for given user")
 }
 
 func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error) {
