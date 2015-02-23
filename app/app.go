@@ -16,7 +16,7 @@ type App struct {
 func Wireup() App {
     app := App{}
 
-    repository, _ := filesystemrepository.CreateRepository("/Users/lukaszlalik/Projects/leaderboard/bin/repository")
+    repository, _ := filesystemrepository.CreateRepository("./../repository")
 
     connector := brainlycrawler.CreateCrawlerConnector(brainlycrawler.CreateHttpRemoteConnector())
 

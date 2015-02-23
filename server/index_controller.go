@@ -14,7 +14,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
     pwd, _ := os.Getwd()
 
     filePath.WriteString(pwd)
-    filePath.WriteString("/assets/index.html")
+    filePath.WriteString("/../assets/index.html")
 
     content, _ := ioutil.ReadFile(filePath.String())
 
@@ -27,7 +27,7 @@ func Js(w http.ResponseWriter, r *http.Request) {
     vars := mux.Vars(r)
 
     filePath.WriteString(pwd)
-    filePath.WriteString("/assets/js/")
+    filePath.WriteString("/../assets/js/")
     filePath.WriteString(vars["fileName"])
 
     content, _ := ioutil.ReadFile(filePath.String())
@@ -41,7 +41,7 @@ func Css(w http.ResponseWriter, r *http.Request) {
     vars := mux.Vars(r)
 
     filePath.WriteString(pwd)
-    filePath.WriteString("/assets/css/")
+    filePath.WriteString("/../assets/css/")
     filePath.WriteString(vars["fileName"])
 
     content, _ := ioutil.ReadFile(filePath.String())
