@@ -23,6 +23,17 @@ func TestGetUserDetails(t *testing.T) {
     }
 }
 
+func TestGetUserDetailsInvalidProfileUrl(t *testing.T) {
+    profileParserTest()
+    profileUrl := "invalid-url"
+
+    _, err := profileParser.getProfileDetails(profileUrl)
+
+    if err == nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
+}
+
 func TestGetTasksIdsFromPage(t *testing.T) {
     profileParserTest()
     profileUrl := "http://zadane.pl/profil/montmorillonit-6680665"
@@ -38,6 +49,17 @@ func TestGetTasksIdsFromPage(t *testing.T) {
         if results[i] != expected[i] {
             t.Errorf("Unexpected value: Expecting: %d, got: %d", expected[i], results[i])
         }
+    }
+}
+
+func TestGetTasksIdsFromPageInvalidProfileUrl(t *testing.T) {
+    profileParserTest()
+    profileUrl := "invalid-url"
+
+    _, err := profileParser.getTasksIdsFromPage(profileUrl)
+
+    if err == nil {
+        t.Errorf("Unexpected error: %s", err)
     }
 }
 
@@ -58,6 +80,17 @@ func TestGetAllTasksIdsForUser(t *testing.T) {
         if results[i] != expected[i] {
             t.Errorf("Unexpected value: Expecting: %d, got: %d", expected[i], results[i])
         }
+    }
+}
+
+func TestGetAllTasksIdsForUserInvalidProfileUrl(t *testing.T) {
+    profileParserTest()
+    profileUrl := "invalid-url"
+
+    _, err := profileParser.getAllTasksIdsForUser(profileUrl)
+
+    if err == nil {
+        t.Errorf("Unexpected error: %s", err)
     }
 }
 
@@ -96,5 +129,18 @@ func TestGetUserAnswerDetailsForTask(t *testing.T) {
 
     if results["id"] != externalId {
         t.Errorf("Expected id: %s, got: %s", externalId, results["id"])
+    }
+}
+
+func TestGetUserAnswerDetailsForTaskInvalidProfileUrl(t *testing.T) {
+    profileParserTest()
+    profileUrl := "invalid-url"
+    userId := 6680665
+    taskId := 2
+
+    _, err := profileParser.getUserAnswerDetails(profileUrl, userId, taskId)
+
+    if err == nil {
+        t.Errorf("Unexpected error: %s", err)
     }
 }

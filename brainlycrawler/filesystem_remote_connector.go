@@ -6,6 +6,7 @@ import (
     "io/ioutil"
     "strings"
     "strconv"
+    "errors"
 )
 
 type FilesystemRemoteConnector struct {
@@ -24,9 +25,10 @@ func (c *FilesystemRemoteConnector) GetProfileHtml(url string) (string, error) {
 
     if url == "http://zadane.pl/profil/montmorillonit-6680665" {
         profilePath.WriteString("/assets/montmorillonit.html")
-    }
-    if url == "http://zadane.pl/profil/montmorillonit-6680665/solved/2" {
+    } else if url == "http://zadane.pl/profil/montmorillonit-6680665/solved/2" {
         profilePath.WriteString("/assets/montmorillonit-2.html")
+    } else {
+        return "", errors.New("Invalid URL")
     }
 
 
@@ -46,7 +48,11 @@ func (c *FilesystemRemoteConnector) GetTaskMainViewJson(url string) (string, err
     endpointPath.WriteString(strconv.Itoa(taskId))
     endpointPath.WriteString(".json")
 
-    json, _ := ioutil.ReadFile(endpointPath.String())
+    json, err := ioutil.ReadFile(endpointPath.String())
+
+    if err != nil {
+        return "", err
+    }
 
     return string(json), nil
 }

@@ -23,18 +23,26 @@ func (c *CrawlerConnector) GetUserAnswers(profileUrl string) ([]leaderboard.Answ
 
     taskIds := make([]int, 0)
 
-    taskIds, _ = c.profileParser.getAllTasksIdsForUser(profileUrl)
+    taskIds, err := c.profileParser.getAllTasksIdsForUser(profileUrl)
+
+    if err != nil {
+        return answers, err
+    }
 
     for _, taskId := range taskIds {
         var answer leaderboard.Answer
-        answerDetails, _ := c.profileParser.getUserAnswerDetails(profileUrl, userId, taskId)
+        answerDetails, err := c.profileParser.getUserAnswerDetails(profileUrl, userId, taskId)
+
+        if err != nil {
+            break
+        }
+
         externalId, _ := strconv.ParseInt(answerDetails["id"], 10, 0)
         answer.ExternalId = int(externalId)
         answer.UserId = userId
         answer.Created = c.convertTimeToTimestamp(answerDetails["created"])
         answers = append(answers, answer)
     }
-
 
     return answers, nil
 }

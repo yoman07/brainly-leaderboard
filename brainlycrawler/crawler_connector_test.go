@@ -13,14 +13,28 @@ func crawlerConnectorTest() {
 func TestGetUserAnswers(t *testing.T) {
     crawlerConnectorTest()
 
-    answers, _ := connector.GetUserAnswers("http://zadane.pl/profil/montmorillonit-6680665")
+    answers, err := connector.GetUserAnswers("http://zadane.pl/profil/montmorillonit-6680665")
     expectedExternalIds := []int{9097505, 9097439, 9097199, 9097025, 9096902,
                       9094857, 9094799, 9094724, 9081419, 9079785}
+
+    if err != nil {
+        t.Errorf("Unexpected error: %s", err)
+    }
 
     for i, _ := range expectedExternalIds {
         if answers[i].ExternalId != expectedExternalIds[i] {
             t.Errorf("Unexpected value: Expecting: %d, got: %d", expectedExternalIds[i], answers[i].ExternalId)
         }
+    }
+}
+
+func TestGetUserAnswersForInvalidProfileUrl(t *testing.T) {
+    crawlerConnectorTest()
+
+    _, err := connector.GetUserAnswers("invalid-url")
+
+    if err == nil {
+        t.Errorf("Unexpected error: %s", err)
     }
 }
 

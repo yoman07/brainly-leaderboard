@@ -29,7 +29,11 @@ func (p *ProfileParser) getUserAnswerDetails(profileUrl string, userId, taskId i
 
     result := make(map[string]string)
 
-    raw, _ := p.connector.GetTaskMainViewJson(endpointUrl.String())
+    raw, err := p.connector.GetTaskMainViewJson(endpointUrl.String())
+
+    if err != nil {
+        return result, err
+    }
 
     decoded := make(map[string]interface{})
 
@@ -62,7 +66,12 @@ func getUserReponseDetails(userId int, responses []interface{}) (map[string]inte
 func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error) {
     result := make(map[string]string)
 
-    body, _ := p.connector.GetProfileHtml(url)
+    body, err := p.connector.GetProfileHtml(url)
+
+    if err != nil {
+        return result, err
+    }
+
     doc, _ := html.Parse(strings.NewReader(body))
 
     rankingSpan, _ := getElement(doc, "span", "class", "ranking")
@@ -77,7 +86,12 @@ func (p *ProfileParser) getProfileDetails(url string) (map[string]string, error)
 func (p *ProfileParser) getAllTasksIdsForUser(url string) ([]int, error) {
     returnIds := make([]int, 0)
 
-    ids, _ := p.getTasksIdsFromPage(url)
+    ids, err := p.getTasksIdsFromPage(url)
+
+    if err != nil {
+        return returnIds, err
+    }
+
     for _, id := range ids {
         returnIds = append(returnIds, id)
     }
@@ -104,7 +118,12 @@ func (p *ProfileParser) getAllTasksIdsForUser(url string) ([]int, error) {
 func (p *ProfileParser) getTasksIdsFromPage(url string) ([]int, error) {
     ids := make([]int, 0)
 
-    body, _ := p.connector.GetProfileHtml(url)
+    body, err := p.connector.GetProfileHtml(url)
+
+    if err != nil {
+        return ids, err
+    }
+
     doc, _ := html.Parse(strings.NewReader(body))
 
     tasksSolved, _ := getElement(doc, "div", "id", "tasks-solved")

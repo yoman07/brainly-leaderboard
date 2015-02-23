@@ -14,17 +14,35 @@ func CreateHttpRemoteConnector() *HttpRemoteConnector {
 }
 
 func (c *HttpRemoteConnector) GetProfileHtml(url string) (string, error) {
-    resp, _ := http.Get(url)
+    resp, err := http.Get(url)
+
+    if err != nil {
+        return "", err
+    }
+
     defer resp.Body.Close()
-    body, _ := ioutil.ReadAll(resp.Body)
+    body, err := ioutil.ReadAll(resp.Body)
+
+    if err != nil {
+        return "", err
+    }
 
     return string(body), nil
 }
 
 func (c *HttpRemoteConnector) GetTaskMainViewJson(url string) (string, error) {
-    resp, _ := http.Get(url)
+    resp, err := http.Get(url)
+
+    if err != nil {
+        return "", err
+    }
+
     defer resp.Body.Close()
-    body, _ := ioutil.ReadAll(resp.Body)
+    body, err := ioutil.ReadAll(resp.Body)
+
+    if err != nil {
+        return "", err
+    }
 
     return string(body), nil
 }
