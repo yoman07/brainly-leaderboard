@@ -6,7 +6,7 @@ import (
 )
 
 func StartWorker() {
-    tick := time.Tick(5 * time.Second)
+    tick := time.Tick(1 * time.Hour)
     op := 0
 
     for {
