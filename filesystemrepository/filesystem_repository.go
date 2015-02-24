@@ -203,6 +203,13 @@ func (r *Repository) FindAnswersByUserIdSince(userId int, since int64) ([]leader
 }
 
 func (r *Repository) SaveUserScore(score leaderboard.UserScore) (leaderboard.UserScore, error) {
+    for i, existingScore := range r.scores {
+        if existingScore.UserId == score.UserId {
+            r.scores[i] = score
+            return score, nil
+        }
+    }
+
     r.scores = append(r.scores, score)
     r.syncRepositoryToDisk()
     return score, nil

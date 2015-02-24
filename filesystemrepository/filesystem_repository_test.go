@@ -94,3 +94,34 @@ func TestFindUserById(t *testing.T) {
 
     cleanupRepositoryTest()
 }
+
+func TestSaveUserScore(t *testing.T) {
+    setupRepositoryTest()
+    userId := 10
+    score1 := leaderboard.UserScore{UserId: userId, Answers7Days: 5}
+    score2 := leaderboard.UserScore{UserId: userId, Answers7Days: 15}
+
+    repository.SaveUserScore(score1)
+    returnedScore1, _ := repository.FindUserScoreByUserId(userId)
+
+    if score1.Answers7Days != returnedScore1.Answers7Days {
+        t.Errorf(
+            "Get unexpected score. Expecting: %v, got: %v",
+            score1.Answers7Days,
+            returnedScore1.Answers7Days,
+        )
+    }
+
+    repository.SaveUserScore(score2)
+    returnedScore2, _ := repository.FindUserScoreByUserId(userId)
+
+    if score2.Answers7Days != returnedScore2.Answers7Days {
+        t.Errorf(
+            "Get unexpected score. Expecting: %v, got: %v",
+            score2.Answers7Days,
+            returnedScore2.Answers7Days,
+        )
+    }
+
+    cleanupRepositoryTest()
+}
