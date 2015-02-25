@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Brainly leaderboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/winners-table.css">
+    <link rel="stylesheet" href="css/loosers-table.css">
+</head>
+<body>
+    <div class="container upper">
+        <div class="header">
+            <img src="img/logo_brainly.png" />
+            <h1>Answering leaderboard</h1>
+        </div>
+
+        <div class="content">
+            <table class="winners-table table">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th class="score">last 7 days</th>
+                    <th class="score">last 30 days</th>
+                    <th class="score">last 90 days</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="container bottom">
+        <div class="content">
+
+            <table class="loosers-table table">
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

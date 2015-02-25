@@ -1,0 +1,73 @@
+.loosers-table {
+    margin-top: 50px    ;
+    border-top: 1px solid #003e6e;
+    border-bottom: 1px solid #003e6e;
+}
+
+.loosers-table>tbody>tr>th, .loosers-table>tbody>tr>td {
+    border: none;
+    padding: 0;
+}
+
+.loosers-table th.score {
+    font-family: Lato;
+    font-size: 24px;
+    color: #003e6e;
+    font-weight: 100;
+    line-height: 18px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+td.score, th.score {
+    text-align: right;
+}
+
+.loosers-table td.place {
+    font-family: Lato;
+    font-size: 32px;
+    padding-top: 37px;
+    width: 50px;
+}
+
+.loosers-table td.avatar {
+    width: 400px;
+}
+
+.loosers-table td.avatar img {
+    width: 64px;
+    height: 64px;
+    float: left;
+    margin-right: 24px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+td.avatar .user-name {
+    margin-top: 28px;
+}
+
+td.avatar .user-name .nick {
+    font-family: Lato;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+td.avatar .user-name .name {
+    color: #003e6e;
+    font-family: Lato;
+    font-size: 15px;
+    margin: 0;
+}
+
+.loosers-table td.score {
+    font-family: Lato;
+    font-size: 32px;
+    padding-top: 37px;
+    width: 200px
+}
+
+.loosers-table tr {
+    border-bottom: 1px solid #1677CF;
+}

@@ -1,0 +1,35 @@
+.upper {
+    background: #1A89E7;
+    padding: 0;
+}
+
+.bottom {
+    padding: 0;
+}
+
+.header {
+    margin: 40px 64px 0px 64px;
+    overflow: hidden;
+    border-bottom: 1px solid white;
+}
+
+.header > h1 {
+    display: block;
+    float: right;
+    color: white;
+    margin: 10px 0px 0px;
+    font-family: Lato;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.header > img {
+    display: block;
+    float: left;
+    margin-bottom: 40px;
+}
+
+.content {
+    margin-left: 64px;
+    margin-right: 64px;
+}

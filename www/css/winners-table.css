@@ -1,0 +1,88 @@
+.winners-table {
+    border-bottom: 1px solid #003e6e;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.winners-table tr:nth-child(2) {
+    border-top: 1px solid #003e6e;
+}
+
+.winners-table>tbody>tr>th, .winners-table>tbody>tr>td {
+    border: none;
+    padding: 0;
+}
+
+.winners-table th.score {
+    font-family: Lato;
+    font-size: 24px;
+    color: #003e6e;
+    font-weight: 100;
+    line-height: 18px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+td.score, th.score {
+    text-align: right;
+}
+
+.winners-table td.place {
+    font-family: Lato;
+    font-size: 32px;
+    padding-top: 37px;
+    width: 50px;
+}
+
+td.avatar {
+    width: 400px;
+}
+
+.avatar-image {
+    float: left;
+    position: relative;
+}
+
+td.avatar img.avatar-img {
+    width: 64px;
+    height: 64px;
+
+    margin-right: 24px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.prize-img {
+    position: absolute;
+    top: 65px;
+    left: 35px;
+}
+
+td.avatar .user-name {
+    margin-top: 28px;
+}
+
+td.avatar .user-name .nick {
+    font-family: Lato;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+td.avatar .user-name .name {
+    color: #003e6e;
+    font-family: Lato;
+    font-size: 15px;
+    margin: 0;
+}
+
+.winners-table td.score {
+    font-family: Lato;
+    font-size: 32px;
+    padding-top: 37px;
+    width: 200px;
+}
+
+.winners-table tr {
+    border-bottom: 1px solid #1677CF;
+}
