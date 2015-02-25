@@ -32,6 +32,7 @@ func Js(w http.ResponseWriter, r *http.Request) {
 
     content, _ := ioutil.ReadFile(filePath.String())
 
+    w.Header().Set("Content-type", "text/javascript")
     fmt.Fprintf(w, string(content))
 }
 
@@ -47,5 +48,20 @@ func Css(w http.ResponseWriter, r *http.Request) {
     content, _ := ioutil.ReadFile(filePath.String())
 
     w.Header().Set("Content-type", "text/css")
+    fmt.Fprintf(w, string(content))
+}
+
+func Img(w http.ResponseWriter, r *http.Request) {
+    var filePath bytes.Buffer
+    pwd, _ := os.Getwd()
+    vars := mux.Vars(r)
+
+    filePath.WriteString(pwd)
+    filePath.WriteString("/../assets/img/")
+    filePath.WriteString(vars["fileName"])
+
+    content, _ := ioutil.ReadFile(filePath.String())
+
+    w.Header().Set("Content-type", "image/png")
     fmt.Fprintf(w, string(content))
 }
