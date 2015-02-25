@@ -10,7 +10,5 @@ func registerHandlers(router *mux.Router) {
     router.HandleFunc("/css/{fileName}", Css)
     router.HandleFunc("/img/{fileName}", Img)
     router.HandleFunc("/users", UsersIndex)
-    router.HandleFunc("/users/{userId}/answers", UserAnswers)
-    router.HandleFunc("/users/{userId}/score", UserScore)
     router.HandleFunc("/scores", ScoreIndex)
 }

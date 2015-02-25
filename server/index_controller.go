@@ -18,7 +18,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
     content, _ := ioutil.ReadFile(filePath.String())
 
-    fmt.Fprintf(w, string(content))
+    fmt.Fprint(w, string(content))
 }
 
 func Js(w http.ResponseWriter, r *http.Request) {
@@ -33,7 +33,7 @@ func Js(w http.ResponseWriter, r *http.Request) {
     content, _ := ioutil.ReadFile(filePath.String())
 
     w.Header().Set("Content-type", "text/javascript")
-    fmt.Fprintf(w, string(content))
+    fmt.Fprint(w, string(content))
 }
 
 func Css(w http.ResponseWriter, r *http.Request) {
@@ -48,7 +48,7 @@ func Css(w http.ResponseWriter, r *http.Request) {
     content, _ := ioutil.ReadFile(filePath.String())
 
     w.Header().Set("Content-type", "text/css")
-    fmt.Fprintf(w, string(content))
+    fmt.Fprint(w, string(content))
 }
 
 func Img(w http.ResponseWriter, r *http.Request) {
@@ -63,5 +63,5 @@ func Img(w http.ResponseWriter, r *http.Request) {
     content, _ := ioutil.ReadFile(filePath.String())
 
     w.Header().Set("Content-type", "image/png")
-    fmt.Fprintf(w, string(content))
+    fmt.Fprint(w, string(content))
 }

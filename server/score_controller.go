@@ -11,5 +11,5 @@ func ScoreIndex(w http.ResponseWriter, r *http.Request) {
 
     rankingJson, _ := json.Marshal(ranking)
 
-    fmt.Fprintf(w, string(rankingJson))
+    fmt.Fprint(w, string(rankingJson))
 }
