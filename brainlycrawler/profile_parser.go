@@ -37,7 +37,12 @@ func (p *ProfileParser) getUserAnswerDetails(profileUrl string, userId, taskId i
 
     decoded := make(map[string]interface{})
 
-    json.Unmarshal([]byte(raw), &decoded)
+    err = json.Unmarshal([]byte(raw), &decoded)
+
+    if err != nil {
+        return result, err
+    }
+
     data := decoded["data"].(map[string]interface{})
     responses := data["responses"].([]interface{})
 
