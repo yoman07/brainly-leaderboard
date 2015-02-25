@@ -1,4 +1,10 @@
-.upper {
+.container, .subcontainer {
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.top {
     background: #1A89E7;
     padding: 0;
 }
