@@ -1,2 +1,2 @@
 # leaderboard
-Go learn-by-doing project, leaderboard of best answerers
+Go learn-by-doing project, leaderboard of best brainly group website answerers
