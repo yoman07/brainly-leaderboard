@@ -1,2 +1,2 @@
 # leaderboard
-Brainly internal leaderboard of best answerers
+Go learn-by-doing project, leaderboard of best answerers
